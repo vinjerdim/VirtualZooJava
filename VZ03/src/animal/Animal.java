@@ -72,7 +72,7 @@ public abstract class Animal {
   }
   
   /** I.S. sembarang<br>
-    * F.S. habitat_status terisi suatu nilai<br>
+    * F.S. animalNature terisi suatu nilai<br>
     * @param land bernilai true jika hewan darat<br>
     * @param water bernilai true jika hewan air<br>
     * @param air bernilai true jika hewan terbang<br>
@@ -83,13 +83,13 @@ public abstract class Animal {
 
   /** I.S. sembarang<br>
     * F.S. sama dengan I.S.<br>
-    * @return memberi akses terhadap habitat_status<br>
+    * @return mengembalikan animalNature<br>
     */
   public Nature getAnimalNature() {
   	return animalNature;
   }
 
-  /** Method abstrak yang diimplementasi di semua turunan Animal<br>
+  /** Menampilkan interaksi Animal ke layar<br>
     * I.S. sembarang<br>
     * F.S. di layar tercetak bentuk interaksi hewan<br>
     */
