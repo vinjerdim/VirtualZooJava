@@ -25,26 +25,24 @@ public class Nature {
   		status[i] = false;
   	}
   }
-
-  /** I.S. sembarang<br>
-    * F.S. status[0] bernilai true<br>
-    */
-  public void setNatureToLand() {
-  	status[0] = true;
-  }
-
-  /** I.S. sembarang<br>
-    * F.S. status[1] bernilai true<br>
-    */
-  public void setNatureToWater() {
-  	status[1] = true;
-  }
-
-  /** I.S. sembarang<br>
-    * F.S. status[2] bernilai true<br>
-    */
-  public void setNatureToAir() {
-  	status[2] = true;
+  
+  /**
+   * I.S. semua elemen status bernilai false
+   * F.S. nilai elemen status berubah sesuai parameter land, water, air
+   * @param land bernilai true jika nature-nya land
+   * @param water bernilai true jika nature-nya water
+   * @param air bernilai true jika nature-nya air
+   */
+  public void setStatus(boolean land, boolean water, boolean air) {
+	if (land) {
+  	  status[0] = true;
+  	}
+  	if (water) {
+  	  status[1] = true;
+  	}
+  	if (air) {
+	  status[2] = true;
+  	}
   }
 
   /** I.S. sembarang<br>

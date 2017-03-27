@@ -78,15 +78,7 @@ public abstract class Animal {
     * @param air bernilai true jika hewan terbang<br>
     */
   public void setAnimalNature(boolean land, boolean water, boolean air) {
-  	if (land) {
-  	  animalNature.setNatureToLand();
-  	}
-  	if (water) {
-  	  animalNature.setNatureToWater();
-  	}
-  	if (air) {
-  	  animalNature.setNatureToAir();
-  	}
+  	animalNature.setStatus(land, water, air);
   }
 
   /** I.S. sembarang<br>
