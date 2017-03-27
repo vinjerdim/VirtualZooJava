@@ -93,7 +93,7 @@ public abstract class Animal {
     * F.S. sama dengan I.S.<br>
     * @return memberi akses terhadap habitat_status<br>
     */
-  public Nature getHabitatStatus() {
+  public Nature getAnimalNature() {
   	return animalNature;
   }
 

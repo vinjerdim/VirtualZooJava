@@ -20,6 +20,6 @@ public class LionTest {
   	assertEquals(1,lion.getAnimalAbsis());
   	assertEquals(2,lion.getAnimalOrdinat());
   	assertFalse(lion.getTamed());
-  	assertArrayEquals(new boolean[]{true,false,false},lion.getHabitatStatus().getStatus());
+  	assertArrayEquals(new boolean[]{true,false,false},lion.getAnimalNature().getStatus());
   }
 }
