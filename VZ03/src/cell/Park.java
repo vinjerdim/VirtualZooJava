@@ -1,5 +1,5 @@
 /**
- * 
+ * Park menyatakan park pada Zoo
  */
 package cell;
 
@@ -10,6 +10,9 @@ package cell;
 public class Park extends Facility implements Renderable {
 
 	/**
+	 * Konstruktor kelas Park
+	 * I.S. sembarang
+	 * F.S. tercipta objek Park
 	 * @param absis Absis dari Park
 	 * @param ordinat Ordinat dari Park
 	 */
@@ -17,7 +20,7 @@ public class Park extends Facility implements Renderable {
 		super(absis, ordinat);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see cell.Renderable#render()
 	 */
 	@Override

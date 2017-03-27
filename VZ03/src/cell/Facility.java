@@ -1,3 +1,6 @@
+/**
+ * Facility merupakan parent untuk kelas Park, Restaurant, Road
+ */
 package cell;
 
 /**
@@ -7,6 +10,9 @@ package cell;
 public class Facility extends Cell {
 
 	/**
+	 * Konstruktor kelas Facility
+	 * I.S. sembarang
+	 * F.S. tercipta objek Facility
 	 * @param absis Absis Facility
 	 * @param ordinat Ordinat Facility
 	 */

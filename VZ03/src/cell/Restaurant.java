@@ -1,5 +1,5 @@
 /**
- * 
+ * Restaurant menyatakan restaurant pada Zoo
  */
 package cell;
 
@@ -10,6 +10,9 @@ package cell;
 public class Restaurant extends Facility implements Renderable {
 
 	/**
+	 * Konstruktor kelas Restaurant
+	 * I.S. sembarang
+	 * F.S. tercipta objek Restaurant
 	 * @param absis Absis dari Restaurant
 	 * @param ordinat Ordinat dari Restaurant
 	 */
@@ -17,6 +20,9 @@ public class Restaurant extends Facility implements Renderable {
 		super(absis, ordinat);
 	}
 	
+	/**
+	 * @see cell.Renderable#render()
+	 */
 	@Override
 	public void render() {
 		System.out.println("$");		

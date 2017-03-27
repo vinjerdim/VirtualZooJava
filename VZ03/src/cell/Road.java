@@ -1,5 +1,5 @@
 /**
- * 
+ * Road merupakan cell berupa jalan pada Zoo
  */
 package cell;
 
@@ -9,56 +9,43 @@ package cell;
  */
 public class Road extends Facility implements Renderable {
 	
-	private boolean visited;
-	private boolean is_here;
+  private boolean isVisited;
 	
-	/**
-	 * @param absis Absis dari Road
-	 * @param ordinat Ordinat dari Road
-	 */
-	public Road(int absis, int ordinat) {
-		super(absis, ordinat);
-		visited = false;
-		is_here = false;
-	}
+  /** Konstruktor kelas Road
+    * I.S. sembarang
+	* F.S. tercipta objek Road, isVisited dan isVisitorHere
+	* @param absis Absis dari Road
+	* @param ordinat Ordinat dari Road
+	*/
+  public Road(int absis, int ordinat) {
+	super(absis, ordinat);
+	isVisited = false;
+  }
 
-	/* (non-Javadoc)
-	 * @see cell.Renderable#render()
-	 */
-	@Override
-	public void render() {
-	  if (visited) {
-	    System.out.print("-");
-	  } 
-	  else {
-	    if (!is_here) {
-		  System.out.print(" ");
-		} 
-	    else {
-		  System.out.print("@");
-		}
-	  }
+  /**
+	* @see cell.Renderable#render()
+	*/
+  @Override
+  public void render() {
+	if (isVisited) {
+	  System.out.print("-");
+	} else {
+	  System.out.print(" ");
 	}
+  }
 	
-	/** Method yang mengembalikan boolean sudah dilewati atau belum
-	 */
-	public boolean isVisited() {
-		return visited;
-	}
+  /** I.S. sembarang
+	* F.S. sama dengan F.S.
+	*/
+  public boolean isVisited() {
+	return isVisited;
+  }
 	
-	/** Method untuk men-set nilai visited
-	 *  @param s Boolean yang akan di set ke atribut visited
-	 */
-	public void setVisited(boolean s) {
-		visited = s;
-	}
-	
-	/** Method untuk men-set nilai is_here
-	 *  @param s Boolean yang akan di set ke atribut is_here
-	 */
-	public void setIsHere(boolean s) {
-		is_here = s;
-	}
-	
-
+  /** I.S. sembarang
+	* F.S. isVisited terisi dengan suatu nilai 
+	* @param s bernilai true jika Road sudah dikunjungi
+	*/
+  public void setVisited(boolean s) {
+	isVisited = s;
+  }
 }
