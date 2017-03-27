@@ -13,8 +13,10 @@ import animal.*;
 public class LionTest {
   @Test
   public void test() {
-	Lion lion = new Lion(50);
+	Lion lion = new Lion(50,1,2);
   	assertEquals(50,lion.getWeight());
+  	assertEquals(1,lion.getAnimalAbsis());
+  	assertEquals(2,lion.getAnimalOrdinat());
   	assertFalse(lion.getTamed());
   	assertArrayEquals(new boolean[]{true,false,false},lion.getHabitatStatus().getStatus());
   }

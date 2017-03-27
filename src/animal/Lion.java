@@ -14,8 +14,8 @@ public class Lion extends Animal implements Mammal {
    * F.S. habitat_status diinisiasi menjadi land, tamed diisi false, jumlah daging bertambah<br>
    * @param weight berat badan Lion
    */
-  public Lion(int weight){
-  	super(weight);
+  public Lion(int weight,int absis,int ordinat){
+  	super(weight,absis,ordinat);
   	super.setAnimalNature(true,false,false);
   	super.setTamed(false);
   	Consumption.addMeatAmount(weight * 0.25);

@@ -58,7 +58,7 @@ public class Nature {
   /** Mengecek apakah Nature suatu Habitat cocok dengan Nature suatu Animal<br>
     * I.S. current objek merupakan Nature dari suatu Habitat<br>
     * F.S. sama dengan I.S.<br>
-  	* @param animal_nature merupakan Nature dari suatu Animal<br>
+  	* @param animalNature Nature dari suatu Animal 
   	* @return bernilai true jika animal_nature cocok dengan Nature current objek<br>
     */
   public boolean isNatureMatch(Nature animalNature) {

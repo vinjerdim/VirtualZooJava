@@ -2,28 +2,33 @@
  * Animal merupakan template untuk menciptakan hewan
  */
 package animal;
-
+import util.Point;
 /**
  * @author Marvin Jerremy Budiman (13515076)
  *
  */
 public abstract class Animal {
   private int weight;
-	  
+  
   /** tamed bernilai true jika hewan jinak, false jika buas
     */
   private boolean tamed;
 
   private Nature animalNature;
-
+  
+  private Point coordinate;
+  
   /** Konstruktor kelas Animal<br>
     * I.S. sembarang<br>
-    * F.S. weight berisi suatu nilai, habitat_status tercipta<br>
+    * F.S. weight berisi suatu nilai, animalNature tercipta, coordinate tercipta<br>
     * @param weight berat badan hewan<br>
+    * @param absis absis hewan pada Zoo
+    * @param ordinat ordinat hewan pada Zoo
     */
-  public Animal(int weight) {
+  public Animal(int weight,int absis,int ordinat) {
   	this.weight = weight;
   	animalNature = new Nature();
+  	coordinate = new Point(absis,ordinat);
   }
 
   /** I.S. sembarang<br>
@@ -49,7 +54,23 @@ public abstract class Animal {
   public int getWeight() {
     return weight;
   }
-
+  
+  /** I.S. sembarang<br>
+    * F.S. sama dengan I.S.<br>
+    * @return absis dari Animal
+    */
+  public int getAnimalAbsis() {
+	return coordinate.getAbsis();
+  }
+  
+  /** I.S. sembarang<br>
+    * F.S. sama dengan I.S.<br> 
+    * @return ordinat dari Animal
+    */
+  public int getAnimalOrdinat() {
+	return coordinate.getOrdinat();
+  }
+  
   /** I.S. sembarang<br>
     * F.S. habitat_status terisi suatu nilai<br>
     * @param land bernilai true jika hewan darat<br>
