@@ -22,14 +22,14 @@ public class Lion extends Animal implements Mammal {
   }
   
   /**
-   * @see animal.Animal#Interact()
+   * @see animal.Animal#interact()
    */
   @Override
   public void interact() {
     System.out.println("HEHE");
   }
   /**
-   * @see animal.Mammal#MammalInteract()
+   * @see animal.Mammal#mammalInteract()
    */
   @Override
   public void mammalInteract() {
