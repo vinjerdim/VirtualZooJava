@@ -1,12 +1,8 @@
-/**
- * 
- */
 package animal;
 
-/**
- * @author Patrick NH (13515040)
- *
+/** @author Patrick NH (13515040).
  */
+
 public class Kangaroo extends Animal implements Mammal {
   /** Konstruktor kelas Animal<br>
    * I.S. sembarang<br>
@@ -15,23 +11,23 @@ public class Kangaroo extends Animal implements Mammal {
    * @param absis absis lokasi Kangaroo
    * @param ordinat ordinat lokasi Kangaroo
    */
-  public Kangaroo(int weight,int absis,int ordinat){
-  	super(weight,absis,ordinat);
-  	super.setAnimalNature(true,false,false);
-  	super.setTamed(false);
-  	Consumption.addVegetableAmount(weight * 0.7);
+  public Kangaroo(int weight,int absis,int ordinat) {
+    super(weight,absis,ordinat);
+    super.setAnimalNature(true,false,false);
+    super.setTamed(false);
+    Consumption.addVegetableAmount(weight * 0.7);
   }
-  
-  /**
-   * @see animal.Animal#interact()
+
+  /**  @see animal.Animal#interact().
    */
+
   @Override
   public void interact() {
     System.out.println("Kangaroo mengacungkan tinjunya padamu");
   }
-  /**
-   * @see animal.Mammal#mammalInteract()
+  /**  @see animal.Mammal#mammalInteract().
    */
+
   @Override
   public void mammalInteract() {
     System.out.println("I'm a Kangaroo and I'm a mammal");

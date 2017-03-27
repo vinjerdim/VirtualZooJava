@@ -1,13 +1,12 @@
-/**
- * Eagle merupakan kelas riil turunan Animal<br>
+/**  Eagle merupakan kelas riil turunan Animal<br>
  * Bukan merupakan hewan buas dan nature-nya di udara<br> 
  */
+
 package animal;
 
-/**
- * @author Muhamad Irfan Maulana (13515037)
- *
+/** @author Muhamad Irfan Maulana (13515037).
  */
+
 public class Eagle extends Animal implements Aves {
 
   /** Konstruktor kelas Animal<br>
@@ -20,24 +19,26 @@ public class Eagle extends Animal implements Aves {
   public Eagle(int weight, int absis, int ordinat) {
     super(weight, absis, ordinat);
     super.setAnimalNature(false,false,true);
-  	super.setTamed(false);
-  	Consumption.addMeatAmount(weight * 0.25);
+    super.setTamed(false);
+    Consumption.addMeatAmount(weight * 0.25);
   }
 
-  /* (non-Javadoc)
-   * @see animal.Aves#avesInteract()
+  /* (non-Javadoc).
+   * @see animal.Aves#avesInteract().
    */
+
   @Override
   public void avesInteract() {
-	  System.out.println("I'm Eagle and I'm aves");
+    System.out.println("I'm Eagle and I'm aves");
   }
 
-  /* (non-Javadoc)
-   * @see animal.Animal#interact()
+  /* (non-Javadoc).
+   * @see animal.Animal#interact().
    */
+
   @Override
   public void interact() {
-	  System.out.println("*Tatapan burung elang kelihatan tajam sekali*");
+    System.out.println("*Tatapan burung elang kelihatan tajam sekali*");
   }
 
 }

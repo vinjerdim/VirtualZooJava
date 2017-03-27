@@ -1,51 +1,50 @@
-/**
- * Road merupakan cell berupa jalan pada Zoo
+/**  Road merupakan cell berupa jalan pada Zoo
  */
+
 package cell;
 
-/**
- * @author Muhamad Irfan Maulana (13515037)
- *
+/** @author Muhamad Irfan Maulana (13515037).
  */
+
 public class Road extends Facility implements Renderable {
-	
+
   private boolean isVisited;
-	
+
   /** Konstruktor kelas Road
     * I.S. sembarang
-	* F.S. tercipta objek Road, isVisited dan isVisitorHere
-	* @param absis Absis dari Road
-	* @param ordinat Ordinat dari Road
-	*/
+  * F.S. tercipta objek Road, isVisited dan isVisitorHere
+  * @param absis Absis dari Road
+  * @param ordinat Ordinat dari Road
+  */
   public Road(int absis, int ordinat) {
-	super(absis, ordinat);
-	isVisited = false;
+    super(absis, ordinat);
+    isVisited = false;
   }
 
-  /**
-	* @see cell.Renderable#render()
-	*/
+  /**  @see cell.Renderable#render().
+  */
+
   @Override
   public void render() {
-	if (isVisited) {
-	  System.out.print("-");
-	} else {
-	  System.out.print(" ");
-	}
+    if (isVisited) {
+      System.out.print("-");
+    } else {
+      System.out.print(" ");
+    }
   }
-	
+
   /** I.S. sembarang
-	* F.S. sama dengan F.S.
-	*/
+  * F.S. sama dengan F.S.
+  */
   public boolean isVisited() {
-	return isVisited;
+    return isVisited;
   }
-	
+
   /** I.S. sembarang
-	* F.S. isVisited terisi dengan suatu nilai 
-	* @param s bernilai true jika Road sudah dikunjungi
-	*/
+  * F.S. isVisited terisi dengan suatu nilai
+  * @param s bernilai true jika Road sudah dikunjungi
+  */
   public void setVisited(boolean s) {
-	isVisited = s;
+    isVisited = s;
   }
 }

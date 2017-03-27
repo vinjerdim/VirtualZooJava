@@ -1,23 +1,24 @@
 /**
  * Animal merupakan template untuk menciptakan hewan
  */
+
 package animal;
+
 import util.Point;
-/**
- * @author Marvin Jerremy Budiman (13515076)
- *
+/** @author Marvin Jerremy Budiman (13515076).
  */
+
 public abstract class Animal {
   private int weight;
-  
-  /** tamed bernilai true jika hewan jinak, false jika buas
+
+  /** tamed bernilai true jika hewan jinak, false jika buas.
     */
   private boolean tamed;
 
   private Nature animalNature;
-  
+
   private Point coordinate;
-  
+
   /** Konstruktor kelas Animal<br>
     * I.S. sembarang<br>
     * F.S. weight berisi suatu nilai, animalNature tercipta, coordinate tercipta<br>
@@ -26,9 +27,9 @@ public abstract class Animal {
     * @param ordinat ordinat hewan pada Zoo
     */
   public Animal(int weight,int absis,int ordinat) {
-  	this.weight = weight;
-  	animalNature = new Nature();
-  	coordinate = new Point(absis,ordinat);
+    this.weight = weight;
+    animalNature = new Nature();
+    coordinate = new Point(absis,ordinat);
   }
 
   /** I.S. sembarang<br>
@@ -36,7 +37,7 @@ public abstract class Animal {
     * @param tamed buas tidaknya suatu hewan<br>
     */
   public void setTamed(boolean tamed) {
-  	this.tamed = tamed;
+    this.tamed = tamed;
   }
 
   /** I.S. sembarang<br>
@@ -44,7 +45,7 @@ public abstract class Animal {
     * @return mengembalikan buas atau tidaknya suatu hewan<br>
     */
   public boolean getTamed() {
-  	return tamed;
+    return tamed;
   }
 
   /** I.S. sembarang<br>
@@ -54,23 +55,23 @@ public abstract class Animal {
   public int getWeight() {
     return weight;
   }
-  
+
   /** I.S. sembarang<br>
     * F.S. sama dengan I.S.<br>
     * @return absis dari Animal
     */
   public int getAnimalAbsis() {
-	return coordinate.getAbsis();
+    return coordinate.getAbsis();
   }
-  
+
   /** I.S. sembarang<br>
-    * F.S. sama dengan I.S.<br> 
+    * F.S. sama dengan I.S.<br>
     * @return ordinat dari Animal
     */
   public int getAnimalOrdinat() {
-	return coordinate.getOrdinat();
+    return coordinate.getOrdinat();
   }
-  
+
   /** I.S. sembarang<br>
     * F.S. animalNature terisi suatu nilai<br>
     * @param land bernilai true jika hewan darat<br>
@@ -78,7 +79,7 @@ public abstract class Animal {
     * @param air bernilai true jika hewan terbang<br>
     */
   public void setAnimalNature(boolean land, boolean water, boolean air) {
-  	animalNature.setStatus(land, water, air);
+    animalNature.setStatus(land, water, air);
   }
 
   /** I.S. sembarang<br>
@@ -86,7 +87,7 @@ public abstract class Animal {
     * @return mengembalikan animalNature<br>
     */
   public Nature getAnimalNature() {
-  	return animalNature;
+    return animalNature;
   }
 
   /** Menampilkan interaksi Animal ke layar<br>

@@ -1,12 +1,10 @@
-/**
- * 
- */
+
+
 package animal;
 
-/**
- * @author Patrick NH (13515040)
- *
+/** @author Patrick NH (13515040).
  */
+
 public class Gorilla  extends Animal implements Mammal {
   /** Konstruktor kelas Animal<br>
    * I.S. sembarang<br>
@@ -15,23 +13,23 @@ public class Gorilla  extends Animal implements Mammal {
    * @param absis absis lokasi Gorilla
    * @param ordinat ordinat lokasi Gorilla
    */
-  public Gorilla(int weight,int absis,int ordinat){
-  	super(weight,absis,ordinat);
-  	super.setAnimalNature(true,false,false);
-  	super.setTamed(false);
-  	Consumption.addMeatAmount(weight * 0.4);
+  public Gorilla(int weight,int absis,int ordinat) {
+    super(weight,absis,ordinat);
+    super.setAnimalNature(true,false,false);
+    super.setTamed(false);
+    Consumption.addMeatAmount(weight * 0.4);
   }
   
-  /**
-   * @see animal.Animal#interact()
+  /**  @see animal.Animal#interact().
    */
+
   @Override
   public void interact() {
     System.out.println("Gorilla menggedor kandang dan berusaha menerkam kamu");
   }
-  /**
-   * @see animal.Mammal#mammalInteract()
+  /**  @see animal.Mammal#mammalInteract().
    */
+
   @Override
   public void mammalInteract() {
     System.out.println("I'm a gorilla and I'm a mammal");

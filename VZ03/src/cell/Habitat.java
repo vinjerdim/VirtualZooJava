@@ -1,21 +1,19 @@
-/**
- * Habitat menyatakan cell dengan jenis habitat pada Zoo
+/**  Habitat menyatakan cell dengan jenis habitat pada Zoo
  */
+
 
 package cell;
 
 import animal.Nature;
 
-/**
- * @author Marvin Jerremy Budiman (13515076).
+/** @author Marvin Jerremy Budiman (13515076).
  */
 
 public class Habitat extends Cell {
   private Nature habitatNature;
   private boolean isInCage;
 
-  /**
-   * Konstruktor kelas Habitat.
+  /**  Konstruktor kelas Habitat.
    * @param absis Absis dari Habitat
    * @param ordinat Ordinat dari Habitat
    */
@@ -35,8 +33,7 @@ public class Habitat extends Cell {
     habitatNature.setStatus(land, water, air);
   }
 
-  /**
-   * I.S. sembarang<br>
+  /**  I.S. sembarang<br>
    * F.S. sama dengan I.S.<br>
    * @return mengembalikan habitatNature<br>
    */
@@ -44,8 +41,7 @@ public class Habitat extends Cell {
     return habitatNature;
   }
 
-  /**
-    * I.S. sembarang
+  /**  I.S. sembarang
     * F.S. sama dengan I.S.
     * @return nilai isInCage
     */
@@ -53,8 +49,7 @@ public class Habitat extends Cell {
     return isInCage;
   }
 
-  /**
-   * I.S. sembarang
+  /**  I.S. sembarang
    * F.S. isInCage terisi suatu nilai
    * @param isInCage nilai untuk isInCage
    */

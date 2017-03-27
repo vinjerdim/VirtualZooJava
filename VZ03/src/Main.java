@@ -1,7 +1,8 @@
-/**
- * Main program untuk Virtual Zoo
+/**  Main program untuk Virtual Zoo
  */
+
 import animal.*;
+
 /** @author Marvin Jerremy Budiman (13515076).
  */
 

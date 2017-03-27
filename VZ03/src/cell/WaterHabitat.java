@@ -1,16 +1,15 @@
-/**
- * WaterHabitat menyatakan Habitat untuk hewan yang hidup di air
+/**  WaterHabitat menyatakan Habitat untuk hewan yang hidup di air
  */
+
 
 package cell;
 
-/**
- * @author Marvin Jerremy Budiman (13515076).
+/** @author Marvin Jerremy Budiman (13515076).
  */
+
 public class WaterHabitat extends Habitat implements Renderable {
 
-  /**
-   * Konstruktor kelas WaterHabitat.
+  /**  Konstruktor kelas WaterHabitat.
    * I.S. sembarang
    * F.S. objek WaterHabitat tercipta, habitatNature menjadi "water"
    * @param absis Absis dari Habitat
@@ -21,9 +20,9 @@ public class WaterHabitat extends Habitat implements Renderable {
     setHabitatNature(false,true,false);
   }
 
-  /**
-   * @see cell.Renderable#render()
+  /**  @see cell.Renderable#render().
    */
+
   @Override
   public void render() {
     if (isInCage()) {

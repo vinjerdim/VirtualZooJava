@@ -1,18 +1,17 @@
-/**
- * Consumption menyimpan informasi jumlah sayur dan daging untuk makanan seluruh hewan dalam Zoo 
+/**  Consumption menyimpan informasi jumlah sayur dan daging untuk makanan seluruh hewan dalam Zoo
  */
+
 package animal;
 
-/**
- * @author Marvin Jerremy Budiman (13515076)
- *
+/** @author Marvin Jerremy Budiman (13515076).
  */
+
 public class Consumption {
-  /** vegetable_amount menyimpan jumlah sayur untuk makanan hewan
+  /** vegetable_amount menyimpan jumlah sayur untuk makanan hewan.
    */
   public static double vegetableAmount = 0;
 
-  /** meat_amount menyimpan jumlah sayur untuk makanan hewan
+  /** meat_amount menyimpan jumlah sayur untuk makanan hewan.
    */
   public static double meatAmount = 0;
 
@@ -21,7 +20,7 @@ public class Consumption {
    * @param amount merupakan jumlah sayur tambahan
    */
   public static void addVegetableAmount(double amount) {
-  	vegetableAmount += amount;
+    vegetableAmount += amount;
   }
 
   /**I.S. amount lebih besar dari 0
@@ -29,7 +28,7 @@ public class Consumption {
    * @param amount merupakan jumlah daging tambahan
    */
   public static void addMeatAmount(double amount) {
-  	meatAmount += amount;
+    meatAmount += amount;
   }
 
   /**I.S. sembarang
@@ -45,6 +44,6 @@ public class Consumption {
    * @return mengembalikan jumlah daging untuk makanan hewan
    */
   public static double getMeatAmount() {
-  	return meatAmount;
+    return meatAmount;
   }
 }
