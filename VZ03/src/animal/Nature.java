@@ -12,7 +12,7 @@ public class Nature {
     * status[1] bernilai true jika nature-nya water<br>
     * status[2] bernilai true jika nature-nya air<br>
     */
-  private boolean status[] = new boolean[3];
+  private boolean[] status = new boolean[3];
 
   /** Konstruktor kelas HabitatStatus<br>
     * Menginisiasi isi status menjadi false saat penciptaan HabitatStatus<br>

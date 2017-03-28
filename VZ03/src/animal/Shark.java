@@ -12,9 +12,9 @@ public class Shark extends Animal implements Pisces {
   /**  Konstruktor kelas Animal<br>
    * I.S. sembarang<br>
    * F.S. habitat_status diinisiasi menjadi water, tamed diisi false, jumlah daging bertambah<br>
-   * @param weight
-   * @param absis
-   * @param ordinat
+   * @param weight berat badan Shark
+   * @param absis absis lokasi Shark
+   * @param ordinat ordinat lokasi Shark
    */
   public Shark(int weight, int absis, int ordinat) {
     super(weight, absis, ordinat);

@@ -23,7 +23,14 @@ public class Zoo {
    * @param row Jumlah baris Zoo
    */
   public Zoo(int column, int row) {
-    zooCells = new Cell[column][row];
+    this.column = column;
+    this.row = row;
+    zooCells = new Cell[row][column];
+    for (int i = 0;i < row;i++) {
+      for (int j = 0;j < column;j++) {
+        setZooCell(j,i,new Cell(j,i));
+      }
+    }
   }
 
   /**
@@ -52,7 +59,7 @@ public class Zoo {
    * @param cell Cell yang hendak diisi ke zooCells
    */
   public void setZooCell(int column, int row, Cell cell) {
-    zooCells[column][row] = cell;
+    zooCells[row][column] = cell;
   }
 
   /**
@@ -63,6 +70,6 @@ public class Zoo {
    * @return Cell pada kolom dan baris yang diinginkan
    */
   public Cell getZooCell(int column, int row) {
-    return zooCells[column][row];
+    return zooCells[row][column];
   }
 }

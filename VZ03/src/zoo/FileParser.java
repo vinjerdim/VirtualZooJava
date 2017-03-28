@@ -4,7 +4,9 @@
 
 package zoo;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * @author Marvin Jerremy Budiman (13515076).
@@ -17,11 +19,11 @@ public class FileParser {
    * Konstruktor kelas FileParser.
    * I.S. file bernama fileName berada di direktori yang sama
    * F.S. objek FileInputStream tercipta
-   * @param fileName nama file input
+   * @param filePath nama file input
    * @throws FileNotFoundException file tidak ditemukan
    */
-  public FileParser(String fileName) throws FileNotFoundException {
-    fileInput = new FileInputStream(fileName);
+  public FileParser(String filePath) throws FileNotFoundException {
+    fileInput = new FileInputStream(filePath);
   }
 
   /**
@@ -65,6 +67,10 @@ public class FileParser {
       }
     }
     return sum;
+  }
+
+  public char getChar() throws IOException {
+    return (char)fileInput.read();
   }
 
   public void close() throws IOException {

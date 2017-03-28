@@ -2,7 +2,9 @@
  * Main program untuk Virtual Zoo.
  */
 
-import java.io.*;
+import java.io.FileNotFoundException;
+
+import java.io.IOException;
 
 import zoo.Driver;
 
@@ -17,7 +19,9 @@ public class Main {
    */
   public static void main(String[] args) {
     try {
-      Driver driver = new Driver("Zoo.txt");
+      Driver driver = new Driver("res/Zoo.txt");
+      driver.initializeZoo();
+      driver.showZoo(0,);
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     } catch (IOException e) {

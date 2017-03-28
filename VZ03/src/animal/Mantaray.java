@@ -1,10 +1,10 @@
 /**  Mantaray merupakan kelas riil turunan Animal<br>
- * Merupakan hewan jinak dan nature-nya di air<br> 
+ * Merupakan hewan jinak dan nature-nya di air<br>
  */
 
 package animal;
 
-/** @author Martin Lutta Putra (13515121).  
+/** @author Martin Lutta Putra (13515121).
  */
 
 public class Mantaray extends Animal implements Pisces {
@@ -12,9 +12,9 @@ public class Mantaray extends Animal implements Pisces {
   /**  Konstruktor kelas Animal<br>
   * I.S. sembarang<br>
   * F.S. habitat_status diinisiasi menjadi water, tamed diisi true, jumlah daging bertambah<br>
-   * @param weight
-   * @param absis
-   * @param ordinat
+   * @param weight berat badan Mantaray
+   * @param absis absis lokasi Mantaray
+   * @param ordinat ordinat lokasi Mantaray
    */
   public Mantaray(int weight, int absis, int ordinat) {
     super(weight, absis, ordinat);

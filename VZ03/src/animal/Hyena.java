@@ -1,6 +1,7 @@
 /**  Hyena merupakan kelas riil turunan Animal<br>
  * Merupakan hewan buas dan nature-nya di darat<br>
  */
+
 package animal;
 
 /** @author Patrick NH (13515040).

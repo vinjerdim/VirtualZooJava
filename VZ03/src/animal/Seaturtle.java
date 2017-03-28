@@ -13,9 +13,9 @@ public class Seaturtle extends Animal implements Reptile {
    * Konstruktor kelas Animal<br>
    * I.S. sembarang<br>
    * F.S. habitat_status diinisiasi menjadi water, tamed diisi true, daging bertambah <br>
-   * @param weight
-   * @param absis
-   * @param ordinat
+   * @param weight berat badan Seaturtle
+   * @param absis absis lokasi Seaturtle
+   * @param ordinat ordinat lokasi Seaturtle
    */
   public Seaturtle(int weight, int absis, int ordinat) {
     super(weight, absis, ordinat);

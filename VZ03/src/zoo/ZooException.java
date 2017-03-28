@@ -9,6 +9,10 @@ package zoo;
  *
  */
 public class ZooException extends Exception {
+  /** serialVersionUID bertipe long.
+   *
+   */
+  private static final long serialVersionUID = 1L;
   private int errorNumber;
 
   /**
@@ -30,10 +34,16 @@ public class ZooException extends Exception {
     return errorNumber;
   }
 
+  /** Menampilkan pesan error.
+   */
   public void printError() {
     switch (errorNumber) {
       case 1:
-        System.out.println("File format error");break;
+        System.out.println("File format error");
+        break;
+      case 2:
+        System.out.println("Index out of bound");
+        break;
       default:
         System.out.println("An error occured");
     }

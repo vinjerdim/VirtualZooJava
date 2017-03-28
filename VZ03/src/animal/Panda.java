@@ -1,10 +1,10 @@
 /**  Panda merupakan kelas riil turunan Animal<br>
- * Merupakan hewan jinak dan nature-nya di darat<br> 
+ * Merupakan hewan jinak dan nature-nya di darat<br>
  */
 
 package animal;
 
-/** @author Martin Lutta Putra (13515121).  
+/** @author Martin Lutta Putra (13515121).
  */
 
 public class Panda extends Animal implements Mammal {
@@ -12,9 +12,9 @@ public class Panda extends Animal implements Mammal {
   /**  Konstruktor kelas Animal<br>
   * I.S. sembarang<br>
    * F.S. habitat_status diinisiasi menjadi land, tamed diisi true, sayur bertambah <br>
-   * @param weight
-   * @param absis
-   * @param ordinat
+   * @param weight berat badan Panda
+   * @param absis absis lokasi Panda
+   * @param ordinat ordinat lokasi Panda
    */
   public Panda(int weight, int absis, int ordinat) {
     super(weight, absis, ordinat);

@@ -13,9 +13,9 @@ public class Frog extends Animal implements Amphibi {
    * I.S. sembarang<br>
    * F.S. habitat_status diinisiasi menjadi land dan water, tamed diisi true,
    *     jumlah daging dan sayur bertambah <br>
-   * @param weight
-   * @param absis
-   * @param ordinat
+   * @param weight berat badan Frog
+   * @param absis absis lokasi Frog
+   * @param ordinat ordinat lokasi Frog
    */
   public Frog(int weight, int absis, int ordinat) {
     super(weight, absis, ordinat);
