@@ -1,7 +1,6 @@
-/**
- *
+/**  Dolphin merupakan kelas riil turunan Animal<br>
+ * Merupakan hewan jinak dan nature-nya di air<br>
  */
-
 package animal;
 
 

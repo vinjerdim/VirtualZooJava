@@ -1,3 +1,6 @@
+/**  Chimpanzee merupakan kelas riil turunan Animal<br>
+ * Merupakan hewan jinak dan nature-nya di darat<br>
+ */
 package animal;
 
 /** @author Patrick NH (13515040).

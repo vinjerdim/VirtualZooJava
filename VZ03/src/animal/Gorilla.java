@@ -1,4 +1,6 @@
-
+/**  Gorilla merupakan kelas riil turunan Animal<br>
+ * Merupakan hewan buas dan nature-nya di darat<br>
+ */
 
 package animal;
 
