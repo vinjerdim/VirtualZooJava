@@ -1,12 +1,17 @@
-
-
 package animal_test;
 
-import static org.junit.Assert.*;
+import animal.Dolphin;
 
 import org.junit.Test;
 
-import animal.*;
+import static org.junit.Assert.assertArrayEquals;
+
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
 
 /**  Test untuk kelas Dolphin.
  */

@@ -1,14 +1,19 @@
-
-
 package animal_test;
 
-import static org.junit.Assert.*;
+import animal.Cheetah;
 
 import org.junit.Test;
 
-import animal.*;
+import static org.junit.Assert.assertArrayEquals;
 
-/**  Test untuk kelas Cheetah
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
+
+/**  Test untuk kelas Cheetah.
  */
 /** @author Patrick NH (13515040).
  */
@@ -17,7 +22,7 @@ public class CheetahTest {
 
   @Test
   public void test() {
-  Cheetah cheetah = new Cheetah(50,1,2);
+    Cheetah cheetah = new Cheetah(50,1,2);
     assertEquals(50,cheetah.getWeight());
     assertEquals(1,cheetah.getAnimalAbsis());
     assertEquals(2,cheetah.getAnimalOrdinat());

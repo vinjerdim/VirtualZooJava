@@ -1,14 +1,19 @@
-
-
 package animal_test;
 
-import static org.junit.Assert.*;
+import animal.Kangaroo;
 
 import org.junit.Test;
 
-import animal.*;
+import static org.junit.Assert.assertArrayEquals;
 
-/**  Test untuk kelas Kangaroo
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
+
+/**  Test untuk kelas Kangaroo.
  */
 /** @author Patrick NH (13515040).
  */

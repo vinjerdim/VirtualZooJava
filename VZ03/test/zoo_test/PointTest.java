@@ -1,12 +1,20 @@
 
 package zoo_test;
 
-import static org.junit.Assert.*;
+import zoo.Point;
 
 import org.junit.Test;
 
-import zoo.Point;
-/**  Test untuk kelas Point
+import static org.junit.Assert.assertArrayEquals;
+
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
+
+/**  Test untuk kelas Point.
  */
 
 /** @author Marvin Jerremy Budiman (13515076).

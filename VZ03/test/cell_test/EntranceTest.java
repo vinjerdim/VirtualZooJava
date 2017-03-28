@@ -2,11 +2,18 @@
 
 package cell_test;
 
-import static org.junit.Assert.*;
+import cell.Entrance;
 
 import org.junit.Test;
 
-import cell.Entrance;
+import static org.junit.Assert.assertArrayEquals;
+
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
 
 /** @author Muhamad Irfan Maulana (13515037).
  */

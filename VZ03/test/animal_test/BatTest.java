@@ -1,14 +1,19 @@
-
-
 package animal_test;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
 
 import animal.Bat;
 
-/**  Test untuk kelas Bat
+import org.junit.Test;
+
+import static org.junit.Assert.assertArrayEquals;
+
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
+
+/**  Test untuk kelas Bat.
  */
 
 /** @author Muhamad Irfan Maulana (13515037).

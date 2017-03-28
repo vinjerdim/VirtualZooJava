@@ -1,17 +1,22 @@
-
-
 package animal_test;
 
-import static org.junit.Assert.*;
+import animal.Komodo;
 
 import org.junit.Test;
 
-import animal.*;
+import static org.junit.Assert.assertArrayEquals;
 
-/**  Test untuk kelas Komodo
+import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.assertTrue;
+
+
+/**  Test untuk kelas Komodo.
  */
 
-/** @author Martin Lutta Putra (13515121).  
+/** @author Martin Lutta Putra (13515121).
  */
 
 public class KomodoTest {

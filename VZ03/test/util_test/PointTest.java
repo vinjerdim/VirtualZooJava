@@ -1,9 +1,7 @@
-/**  Test untuk kelas Cell.
- */
 
-package cell_test;
+package util_test;
 
-import cell.Cell;
+import util.Point;
 
 import org.junit.Test;
 
@@ -16,15 +14,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
+/**  Test untuk kelas Point.
+ */
+
 /** @author Marvin Jerremy Budiman (13515076).
  */
 
-public class CellTest {
+public class PointTest {
 
   @Test
   public void test() {
-    Cell cell = new Cell(1,-5);
-    assertEquals(1,cell.getCellAbsis());
-    assertEquals(-5,cell.getCellAbsis());
+    Point point = new Point(-1,5);
+    assertEquals(-1,point.getAbsis());
+    assertEquals(5,point.getOrdinat());
   }
+
 }
