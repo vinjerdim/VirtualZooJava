@@ -26,9 +26,7 @@ import java.io.IOException;
 
 public class Driver {
   private FileParser parser;
-
   private Zoo zoo;
-
   private CageArray cageArray;
 
   /**
@@ -59,6 +57,53 @@ public class Driver {
   }
 
   /**
+   * I.S. sembarang
+   * F.S. menu utama tercetak di layar
+   */
+  public void showMenu() {
+    System.out.println("");
+    System.out.println("1. Show Virtual Zoo");
+    System.out.println("2. Tour Virtual Zoo");
+    System.out.println("3. Show Animal in Virtual Zoo");
+    System.out.println("4. Show Food in Virtual Zoo");
+  }
+
+  /**
+   * Menampilkan Zoo di dalam range tertentu
+   * I.S. batas-batas tidak melebihi column dan row pada zoo
+   * F.S. tercetak penggambaran zoo di layar
+   */
+  public void showZooWithBoundary(int upperBound, int lowerBound, int leftBound, int rightBound)
+      throws ZooException {
+    if (!isValidRow(upperBound) || !isValidRow(lowerBound) || upperBound > lowerBound) {
+      throw new ZooException(2);
+    }
+    if (!isValidColumn(leftBound) || !isValidColumn(rightBound) || leftBound > rightBound) {
+      throw new ZooException(2);
+    }
+    for (int row = upperBound;row <= lowerBound;row++) {
+      for (int column = leftBound;column <= rightBound;column++) {
+        zoo.getZooCell(column, row).render();
+      }
+      System.out.println("");
+    }
+  }
+
+  /**
+   * Menampilkan keseluruhan Zoo
+   * I.S. sembarang
+   * F.S. tercetak penggambaran zoo di layar
+   */
+  public void showWholeZoo() {
+    for (int row = 0;row < zoo.getZooRow();row++) {
+      for (int column = 0;column < zoo.getZooColumn();column++) {
+        zoo.getZooCell(column, row).render();
+      }
+      System.out.println("");
+    }
+  }
+
+  /**
    * I.S. Objek Driver sudah terbentuk
    * F.S. zoo terisi dengan cell yang berupa Habitat atau Facility
    * @throws IOException IO error
@@ -72,7 +117,8 @@ public class Driver {
     while (currentString.equals("#ZooEntry")) {
       String currentEntry = parser.getString();
 
-      while (!(currentEntry.equals("#"))) {
+      char temp = '>';
+      while (temp != '@') {
         int column = parser.getNumber();
         int row = parser.getNumber();
 
@@ -96,13 +142,8 @@ public class Driver {
           throw new ZooException(1);
         }
 
-        char temp = parser.getChar();
-        if (temp == '>') {
-          parser.getChar();
-        } else if (temp == '@') {
-          parser.getChar();
-          currentEntry = "#";
-        }
+        temp = parser.getChar();
+        parser.getChar();
       }
       currentString = parser.getString();
       if (currentString.equals("#")) {
@@ -111,6 +152,12 @@ public class Driver {
     }
   }
 
+  /**
+   * I.S. Objek Driver sudah terbentuk
+   * F.S. cageArray terisi dengan cell yang berupa Habitat dan Animal
+   * @throws IOException IO error
+   * @throws ZooException Zoo configuration error
+   */
   public void initializeCage() throws IOException, ZooException {
     String currentString = parser.getString();
     if (!(currentString.equals("#CageEntry"))) {
@@ -217,44 +264,21 @@ public class Driver {
   }
 
   /**
-   * Menampilkan Zoo di dalam range tertentu
-   * I.S. batas-batas tidak melebihi column dan row pada zoo
-   * F.S. tercetak penggambaran zoo di layar
-   */
-  public void showZooWithBoundary(int upperBound, int lowerBound, int leftBound, int rightBound)
-      throws ZooException {
-    if (!isValidRow(upperBound) || !isValidRow(lowerBound) || upperBound > lowerBound) {
-      throw new ZooException(2);
-    }
-    if (!isValidColumn(leftBound) || !isValidColumn(rightBound) || leftBound > rightBound) {
-      throw new ZooException(2);
-    }
-    for (int row = upperBound;row <= lowerBound;row++) {
-      for (int column = leftBound;column <= rightBound;column++) {
-        zoo.getZooCell(column, row).render();
-      }
-      System.out.println("");
-    }
-  }
-
-  /**
-   * Menampilkan keseluruhan Zoo
    * I.S. sembarang
-   * F.S. tercetak penggambaran zoo di layar
+   * F.S. sama dengan I.S.
+   * @param row nilai baris yang akan diperiksa
+   * @return true jika tidak diluar nomor baris Zoo
    */
-  public void showWholeZoo() {
-    for (int row = 0;row < zoo.getZooRow();row++) {
-      for (int column = 0;column < zoo.getZooColumn();column++) {
-        zoo.getZooCell(column, row).render();
-      }
-      System.out.println("");
-    }
-  }
-
   private boolean isValidRow(int row) {
     return (row >= 0 && row < zoo.getZooRow());
   }
 
+  /**
+   * I.S. sembarang
+   * F.S. sama dengan I.S.
+   * @param column nilai kolom yang akan diperiksa
+   * @return true jika tidak diluar nomor kolom Zoo
+   */
   private boolean isValidColumn(int column) {
     return (column >= 0 && column < zoo.getZooColumn());
   }
