@@ -44,6 +44,9 @@ public class ZooException extends Exception {
       case 2:
         System.out.println("Index out of bound");
         break;
+      case 3:
+        System.out.println("Cage violation");
+        break;
       default:
         System.out.println("An error occured");
     }

@@ -4,9 +4,12 @@
 
 package zoo;
 
+import animal.*;
+
 import cell.AirHabitat;
 import cell.Entrance;
 import cell.Exit;
+import cell.Habitat;
 import cell.LandHabitat;
 import cell.Park;
 import cell.Restaurant;
@@ -26,6 +29,8 @@ public class Driver {
 
   private Zoo zoo;
 
+  private CageArray cageArray;
+
   /**
    * Konstruktor kelas Driver
    * I.S. file bernama fileName berada di direktori yang sama
@@ -41,6 +46,13 @@ public class Driver {
       int column = parser.getNumber();
       int row = parser.getNumber();
       zoo = new Zoo(column,row);
+
+      currentString = parser.getString();
+      if (!currentString.equals("#Cage")) {
+        throw new ZooException(1);
+      }
+      int numberOfCage = parser.getNumber();
+      cageArray = new CageArray(numberOfCage);
     } else {
       throw new ZooException(1);
     }
@@ -91,6 +103,111 @@ public class Driver {
           parser.getChar();
           currentEntry = "#";
         }
+      }
+      currentString = parser.getString();
+      if (currentString.equals("#")) {
+        break;
+      }
+    }
+  }
+
+  public void initializeCage() throws IOException, ZooException {
+    String currentString = parser.getString();
+    if (!(currentString.equals("#CageEntry"))) {
+      throw new ZooException(1);
+    }
+    int indexCage = 0;
+    while (currentString.equals("#CageEntry")) {
+      int numberOfHabitat = parser.getNumber();
+      int numberOfAnimal = parser.getNumber();
+
+      if (numberOfAnimal > 3 * numberOfHabitat / 10) {
+        throw new ZooException(3);
+      }
+      cageArray.setCageByIndex(indexCage, new Cage(numberOfHabitat,numberOfAnimal));
+
+      int indexHabitat = 0;
+      int indexAnimal = 0;
+      String currentEntry = parser.getString();
+      if (!(currentEntry.equals("#Habitat"))) {
+        throw new ZooException(3);
+      }
+      char temp = '>';
+      while (temp != '@') {
+        int column = parser.getNumber();
+        int row = parser.getNumber();
+
+        if (!(zoo.getZooCell(column, row) instanceof Habitat)) {
+          throw new ZooException(3);
+        }
+        Habitat tempHabitat = (Habitat)zoo.getZooCell(column, row);
+        tempHabitat.setInCage(true);
+        cageArray.getCageByIndex(indexCage).setHabitatByIndex(indexHabitat, tempHabitat);
+        indexHabitat++;
+
+        String animal = parser.getString();
+        if (!animal.equals("#None")) {
+          int weight = parser.getNumber();
+          Animal tempAnimal = null;
+          if (animal.equals("#Bat")) {
+            tempAnimal = new Bat(weight,column,row);
+          } else if (animal.equals("#Cendrawasih")) {
+            tempAnimal = new Cendrawasih(weight,column,row);
+          } else if (animal.equals("#Cheetah")) {
+            tempAnimal = new Cheetah(weight,column,row);
+          } else if (animal.equals("#Chimpanzee")) {
+            tempAnimal = new Chimpanzee(weight,column,row);
+          } else if (animal.equals("#Crocodile")) {
+            tempAnimal = new Crocodile(weight,column,row);
+          } else if (animal.equals("#Dolphin")) {
+            tempAnimal = new Dolphin(weight,column,row);
+          } else if (animal.equals("#Eagle")) {
+            tempAnimal = new Eagle(weight,column,row);
+          } else if (animal.equals("#Frog")) {
+            tempAnimal = new Frog(weight,column,row);
+          } else if (animal.equals("#Gorilla")) {
+            tempAnimal = new Gorilla(weight,column,row);
+          } else if (animal.equals("#Hyena")) {
+            tempAnimal = new Hyena(weight,column,row);
+          } else if (animal.equals("#Kangaroo")) {
+            tempAnimal = new Kangaroo(weight,column,row);
+          } else if (animal.equals("#Koala")) {
+            tempAnimal = new Koala(weight,column,row);
+          } else if (animal.equals("#Kolibri")) {
+            tempAnimal = new Kolibri(weight,column,row);
+          } else if (animal.equals("#Komodo")) {
+            tempAnimal = new Komodo(weight,column,row);
+          } else if (animal.equals("#Lion")) {
+            tempAnimal = new Lion(weight,column,row);
+          } else if (animal.equals("#Mantaray")) {
+            tempAnimal = new Mantaray(weight,column,row);
+          } else if (animal.equals("#Orangutan")) {
+            tempAnimal = new Orangutan(weight,column,row);
+          } else if (animal.equals("#Ostrich")) {
+            tempAnimal = new Ostrich(weight,column,row);
+          } else if (animal.equals("#Panda")) {
+            tempAnimal = new Panda(weight,column,row);
+          } else if (animal.equals("#Peacock")) {
+            tempAnimal = new Peacock(weight,column,row);
+          } else if (animal.equals("#Seaturtle")) {
+            tempAnimal = new Seaturtle(weight,column,row);
+          } else if (animal.equals("#Shark")) {
+            tempAnimal = new Shark(weight,column,row);
+          } else if (animal.equals("#Tiger")) {
+            tempAnimal = new Tiger(weight,column,row);
+          } else if (animal.equals("#Whale")) {
+            tempAnimal = new Whale(weight,column,row);
+          }
+          cageArray.getCageByIndex(indexCage).setAnimalByIndex(indexAnimal, tempAnimal);
+          indexAnimal++;
+        } else if (animal.equals("#None")) {
+
+        } else {
+          throw new ZooException(1);
+        }
+
+        temp = parser.getChar();
+        parser.getChar();
       }
       currentString = parser.getString();
       if (currentString.equals("#")) {

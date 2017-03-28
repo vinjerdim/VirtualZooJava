@@ -21,6 +21,7 @@ public class Main {
     try {
       Driver driver = new Driver("res/Zoo.txt");
       driver.initializeZoo();
+      driver.initializeCage();
       driver.showZooWithBoundary(0,9,0,9);
       driver.showWholeZoo();
     } catch (FileNotFoundException e) {

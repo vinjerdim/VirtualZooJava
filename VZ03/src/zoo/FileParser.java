@@ -38,7 +38,7 @@ public class FileParser {
     char bufferChar;
     while (!endOfLine) {
       bufferChar = (char)fileInput.read();
-      if (bufferChar != '\n') {
+      if (bufferChar != '\n' && bufferChar != ' ') {
         string += bufferChar;
       } else {
         endOfLine = true;

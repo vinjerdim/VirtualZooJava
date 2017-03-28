@@ -17,13 +17,13 @@ public class Restaurant extends Facility implements Renderable {
   public Restaurant(int absis, int ordinat) {
     super(absis, ordinat);
   }
-  
+
   /**  @see cell.Renderable#render().
    */
 
   @Override
   public void render() {
-    System.out.println("$");    
+    System.out.print("$");
   }
 
 }
