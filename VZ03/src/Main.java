@@ -23,6 +23,7 @@ public class Main {
       driver.initializeZoo();
       driver.initializeCage();
       driver.showWholeZoo();
+      driver.tourZoo();
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     } catch (IOException e) {

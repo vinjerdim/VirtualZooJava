@@ -1,7 +1,12 @@
 /**
  * CageArray merupakan koleksi bertipe Cage
  */
+
 package zoo;
+
+import animal.Animal;
+
+import cell.Habitat;
 
 /**
  * @author Marvin Jerremy Budiman (13515076).
@@ -22,6 +27,14 @@ public class CageArray {
     cageArray[index] = cage;
   }
 
+  public void setHabitatByIndex(int indexCage, int indexHabitat, Habitat habitat) {
+    cageArray[indexCage].setHabitatByIndex(indexHabitat, habitat);
+  }
+
+  public void setAnimalByIndex(int indexCage, int indexAnimal, Animal animal) {
+    cageArray[indexCage].setAnimalByIndex(indexAnimal, animal);
+  }
+
   public int numberOfCage() {
     return cageArray.length;
   }
@@ -38,4 +51,5 @@ public class CageArray {
     }
     return (found) ? i : -1;
   }
+
 }
