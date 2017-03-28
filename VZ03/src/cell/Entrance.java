@@ -17,10 +17,9 @@ public class Entrance extends Road {
   public Entrance(int absis, int ordinat) {
     super(absis, ordinat);
   }
-  
+
   /**  @see cell.Renderable#render().
    */
-
   @Override
   public void render() {
     System.out.print(")");

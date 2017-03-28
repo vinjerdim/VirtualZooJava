@@ -1,11 +1,11 @@
 
-package util_test;
+package zoo_test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import util.Point;
+import zoo.Point;
 /**  Test untuk kelas Point
  */
 

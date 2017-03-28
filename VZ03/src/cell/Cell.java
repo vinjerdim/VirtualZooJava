@@ -3,11 +3,11 @@
 
 package cell;
 
-import util.Point;
+import zoo.Point;
 /** @author Marvin Jerremy Budiman (13515076).
  */
 
-public class Cell {
+public class Cell implements Renderable {
   private Point coordinate;
 
   /**  Konstruktor kelas Cell
@@ -34,5 +34,12 @@ public class Cell {
    */
   public int getCellOrdinat() {
     return coordinate.getOrdinat();
+  }
+
+  /**  @see cell.Renderable#render().
+   */
+  @Override
+  public void render() {
+    System.out.print("#");
   }
 }

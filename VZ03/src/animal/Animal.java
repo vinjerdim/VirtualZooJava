@@ -4,7 +4,7 @@
 
 package animal;
 
-import util.Point;
+import zoo.Point;
 /** @author Marvin Jerremy Budiman (13515076).
  */
 
