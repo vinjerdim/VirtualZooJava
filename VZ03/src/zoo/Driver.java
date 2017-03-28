@@ -104,21 +104,30 @@ public class Driver {
    * I.S. batas-batas tidak melebihi column dan row pada zoo
    * F.S. tercetak penggambaran zoo di layar
    */
-  public void showZoo(int upperBound, int lowerBound, int leftBound, int rightBound) throws ZooException {
-    if (upperBound <= 0 || upperBound >= zoo.getZooRow()) {
+  public void showZooWithBoundary(int upperBound, int lowerBound, int leftBound, int rightBound)
+      throws ZooException {
+    if (!isValidRow(upperBound) || !isValidRow(lowerBound) || upperBound > lowerBound) {
       throw new ZooException(2);
     }
-    if (lowerBound <= 0 || lowerBound >= zoo.getZooRow()) {
+    if (!isValidColumn(leftBound) || !isValidColumn(rightBound) || leftBound > rightBound) {
       throw new ZooException(2);
     }
-    if (leftBound <= 0 || leftBound >= zoo.getZooColumn()) {
-      throw new ZooException(2);
+    for (int row = upperBound;row <= lowerBound;row++) {
+      for (int column = leftBound;column <= rightBound;column++) {
+        zoo.getZooCell(column, row).render();
+      }
+      System.out.println("");
     }
-    if (rightBound <= 0 || rightBound >= zoo.getZooRow()) {
-      throw new ZooException(2);
-    }
-    for (int row = upperBound;row < lowerBound;row++) {
-      for (int column = leftBound;column < rightBound;column++) {
+  }
+
+  /**
+   * Menampilkan keseluruhan Zoo
+   * I.S. sembarang
+   * F.S. tercetak penggambaran zoo di layar
+   */
+  public void showWholeZoo() {
+    for (int row = 0;row < zoo.getZooRow();row++) {
+      for (int column = 0;column < zoo.getZooColumn();column++) {
         zoo.getZooCell(column, row).render();
       }
       System.out.println("");
@@ -126,6 +135,10 @@ public class Driver {
   }
 
   private boolean isValidRow(int row) {
-    return
+    return (row >= 0 && row < zoo.getZooRow());
+  }
+
+  private boolean isValidColumn(int column) {
+    return (column >= 0 && column < zoo.getZooColumn());
   }
 }
