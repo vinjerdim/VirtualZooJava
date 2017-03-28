@@ -20,6 +20,10 @@ public class Cell implements Renderable {
     coordinate = new Point(absis,ordinat);
   }
 
+  public Point getCellCoordinate() {
+    return coordinate;
+  }
+
   /**  I.S. sembarang
    * F.S. sama dengan I.S.
    * @return absis dari cell

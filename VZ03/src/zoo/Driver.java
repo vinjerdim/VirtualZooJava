@@ -320,6 +320,14 @@ public class Driver {
   }
 
   /**
+   * I.S. numberOfCage lebih besar dari 0
+   * F.S. coordinate setiap Animal dalam Zoo tetap sama atau berubah
+   */
+  public void moveAnimalInZoo() {
+    cageArray.moveAnimalInCage();
+  }
+
+  /**
    * I.S. sembarang
    * F.S. Menampilkan hewan beserta lokasi nya dalam Zoo
    */

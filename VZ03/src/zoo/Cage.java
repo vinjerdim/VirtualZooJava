@@ -8,6 +8,8 @@ import animal.Animal;
 
 import cell.Habitat;
 
+import java.util.ArrayList;
+
 /**
  * @author Marvin Jerremy Budiman (13515076).
  *
@@ -108,12 +110,66 @@ public class Cage {
   }
 
   /**
+   * Mengembalikan indeks pada animalArray yang elemennya mempunyai absis dan ordinat tertentu
+   * I.S. sembarang
+   * F.S. sama dengan I.S.
+   * @param absis Absis dari Animal yang dicari
+   * @param ordinat Ordinat dari Animal yang dicari
+   * @return Indeks Habitat yang dicari pada animalArray, -1 jika tidak ditemukan
+   */
+  public int getAnimalIndex(int absis, int ordinat) {
+    int i = 0;
+    boolean found = false;
+    while (i < numberOfAnimal() && !found) {
+      if (animalArray[i].getAnimalAbsis() == absis && animalArray[i].getAnimalOrdinat() == ordinat) {
+        found = true;
+      } else {
+        i++;
+      }
+    }
+    return (found) ? i : -1;
+  }
+
+  /**
    * I.S. jumlah Animal dalam Cage lebih besar dari 0
    * F.S. interaksi seluruh Animal dalam Cage tercetak di layar
    */
   public void wakeAnimalInCage() {
     for (int i = 0;i < numberOfAnimal();i++) {
       animalArray[i].interact();
+    }
+  }
+
+  /**
+   * I.S. jumlah Animal dalam Cage lebih besar dari 0
+   * F.S. coordinate Animal berubah atau tetap sama
+   */
+  public void moveAnimalInCage() {
+    ArrayList<Point> nextCoordinate = new ArrayList<Point>();
+    for (int i = 0;i < numberOfAnimal();i++) {
+      ArrayList<Point> candidate = new ArrayList<Point>();
+      int absis = animalArray[i].getAnimalAbsis();
+      int ordinat = animalArray[i].getAnimalOrdinat();
+      Point[] index = {new Point(absis + 1,ordinat),new Point(absis,ordinat + 1),
+          new Point(absis,ordinat - 1),new Point(absis - 1,ordinat)};
+      for (int j = 0;j < 4;j++) {
+        int animalIndex = getAnimalIndex(index[j].getAbsis(),index[j].getOrdinat());
+        int habitatIndex = getHabitatIndex(index[j].getAbsis(),index[j].getOrdinat());
+        if (animalIndex == -1 && habitatIndex != -1) {
+          candidate.add(getHabitatByIndex(habitatIndex).getCellCoordinate());
+        }
+      }
+      if (candidate.size() > 0 && (nextCoordinate.indexOf(candidate.get(0)) == -1)) {
+        nextCoordinate.add(candidate.get(0));
+      } else {
+        nextCoordinate.add(animalArray[i].getAnimalCoordinate());
+      }
+    }
+    for (int i = 0;i < numberOfAnimal();i++) {
+      if (!nextCoordinate.get(i).equals(animalArray[i].getAnimalCoordinate())) {
+        animalArray[i].setAnimalAbsis(nextCoordinate.get(i).getAbsis());
+        animalArray[i].setAnimalOrdinat(nextCoordinate.get(i).getOrdinat());
+      }
     }
   }
 

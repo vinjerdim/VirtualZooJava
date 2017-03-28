@@ -40,6 +40,7 @@ public class Main {
             break;
           case 3:
             driver.showAnimalLocation();
+            driver.moveAnimalInZoo();
             break;
           case 4:
             driver.showFoodAmount();

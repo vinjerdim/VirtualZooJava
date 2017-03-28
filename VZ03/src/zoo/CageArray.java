@@ -97,4 +97,14 @@ public class CageArray {
     }
     return (found) ? i : -1;
   }
+
+  /**
+   * I.S. numberOfCage lebih besar dari 0
+   * F.S. coordinate setiap Animal dalam cageArray tetap sama atau berubah
+   */
+  public void moveAnimalInCage() {
+    for (int i = 0;i < numberOfCage();i++) {
+      cageArray[i].moveAnimalInCage();
+    }
+  }
 }

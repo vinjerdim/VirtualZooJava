@@ -72,6 +72,31 @@ public abstract class Animal {
     return coordinate.getOrdinat();
   }
 
+  /**
+   * I.S. sembarang<br>
+   * F.S. sama dengan I.S.<br>
+   * @return coordinate lokasi Animal
+   */
+  public Point getAnimalCoordinate() {
+    return coordinate;
+  }
+
+  /** I.S. sembarang<br>
+   * F.S. absis terisi dengan suatu nilai<br>
+   * @param absis Absis dari Animal
+   */
+  public void setAnimalAbsis(int absis) {
+    coordinate.setAbsis(absis);
+  }
+
+  /** I.S. sembarang<br>
+   * F.S. ordinat terisi dengan suatu nilai<br>
+   * @param ordinat Ordinat dari Animal
+   */
+  public void setAnimalOrdinat(int ordinat) {
+    coordinate.setOrdinat(ordinat);
+  }
+
   /** I.S. sembarang<br>
     * F.S. animalNature terisi suatu nilai<br>
     * @param land bernilai true jika hewan darat<br>
