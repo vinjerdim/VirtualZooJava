@@ -19,6 +19,8 @@ import cell.WaterHabitat;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import java.util.Random;
+
 /**
  * @author Marvin Jerremy Budiman (13515076).
  *
@@ -28,6 +30,7 @@ public class Driver {
   private FileParser parser;
   private Zoo zoo;
   private CageArray cageArray;
+  private Path zooPath;
 
   /**
    * Konstruktor kelas Driver
@@ -51,6 +54,7 @@ public class Driver {
       }
       int numberOfCage = parser.getNumber();
       cageArray = new CageArray(numberOfCage);
+      zooPath = new Path();
     } else {
       throw new ZooException(1);
     }
@@ -134,10 +138,14 @@ public class Driver {
           zoo.setZooCell(column,row,new Restaurant(column,row));
         } else if (currentEntry.equals("#Road")) {
           zoo.setZooCell(column,row,new Road(column,row));
+          zooPath.addRoad((Road)zoo.getZooCell(column, row));
         } else if (currentEntry.equals("#Entrance")) {
           zoo.setZooCell(column,row,new Entrance(column,row));
+          zooPath.addEntrance((Entrance)zoo.getZooCell(column, row));
+          zooPath.addRoad((Road)zoo.getZooCell(column, row));
         } else if (currentEntry.equals("#Exit")) {
           zoo.setZooCell(column,row,new Exit(column,row));
+          zooPath.addRoad((Road)zoo.getZooCell(column, row));
         } else {
           throw new ZooException(1);
         }
@@ -172,7 +180,6 @@ public class Driver {
         throw new ZooException(3);
       }
       cageArray.setCageByIndex(indexCage, new Cage(numberOfHabitat,numberOfAnimal));
-
       int indexHabitat = 0;
       int indexAnimal = 0;
       String currentEntry = parser.getString();
@@ -189,7 +196,7 @@ public class Driver {
         }
         Habitat tempHabitat = (Habitat)zoo.getZooCell(column, row);
         tempHabitat.setInCage(true);
-        cageArray.getCageByIndex(indexCage).setHabitatByIndex(indexHabitat, tempHabitat);
+        cageArray.setHabitatByIndex(indexCage, indexHabitat, tempHabitat);
         indexHabitat++;
 
         String animal = parser.getString();
@@ -245,7 +252,7 @@ public class Driver {
           } else if (animal.equals("#Whale")) {
             tempAnimal = new Whale(weight,column,row);
           }
-          cageArray.getCageByIndex(indexCage).setAnimalByIndex(indexAnimal, tempAnimal);
+          cageArray.setAnimalByIndex(indexCage, indexAnimal, tempAnimal);
           indexAnimal++;
         } else if (animal.equals("#None")) {
 
@@ -259,7 +266,31 @@ public class Driver {
       currentString = parser.getString();
       if (currentString.equals("#")) {
         break;
+      } else {
+        indexCage++;
       }
+    }
+  }
+
+  public void tourZoo() {
+    Random rand = new Random();
+    int randomNumber = rand.nextInt(zooPath.numberOfEntrance());
+    zooPath.setCurrentRoad(zooPath.getEntranceByIndex(randomNumber));
+    while (!zooPath.getNextRoad().equals(zooPath.getCurrentRoad())) {
+      int absis = zooPath.getCurrentRoad().getCellAbsis();
+      int ordinat = zooPath.getCurrentRoad().getCellOrdinat();
+      System.out.println(absis + " " + ordinat);
+      int[] index = {cageArray.getCageIndex(absis + 1, ordinat),
+          cageArray.getCageIndex(absis, ordinat + 1),
+          cageArray.getCageIndex(absis - 1, ordinat),
+          cageArray.getCageIndex(absis, ordinat - 1)};
+      for (int i = 0;i < 4;i++) {
+        if (index[i] != -1) {
+          cageArray.getCageByIndex(index[i]).wakeAnimalInCage();
+        }
+      }
+      zooPath.getCurrentRoad().setVisited(true);
+      zooPath.setCurrentRoad(zooPath.getNextRoad());
     }
   }
 
