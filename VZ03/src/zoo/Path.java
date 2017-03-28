@@ -93,4 +93,10 @@ public class Path {
       return candidate.get(randomNumber);
     }
   }
+
+  public void setAllUnvisited() {
+    for (int i = 0;i < roadArray.size();i++) {
+      roadArray.get(i).setVisited(false);
+    }
+  }
 }

@@ -273,6 +273,7 @@ public class Driver {
   }
 
   public void tourZoo() {
+    zooPath.setAllUnvisited();
     Random rand = new Random();
     int randomNumber = rand.nextInt(zooPath.numberOfEntrance());
     zooPath.setCurrentRoad(zooPath.getEntranceByIndex(randomNumber));
@@ -286,7 +287,9 @@ public class Driver {
           cageArray.getCageIndex(absis, ordinat - 1)};
       for (int i = 0;i < 4;i++) {
         if (index[i] != -1) {
-          cageArray.getCageByIndex(index[i]).wakeAnimalInCage();
+          if (cageArray.getCageByIndex(index[i]).numberOfAnimal() > 0) {
+            cageArray.getCageByIndex(index[i]).wakeAnimalInCage();
+          }
         }
       }
       zooPath.getCurrentRoad().setVisited(true);

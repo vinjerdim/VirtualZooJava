@@ -298,13 +298,13 @@
 7
 2
 #Habitat
-9 8 #Bat 12 >
-10 8 #None >
-11 8 #None >
-12 8 #None >
-13 8 #None >
-14 8 #None >
-15 8 #None @
+1 12 #Bat 12 >
+2 12 #None >
+3 12 #None >
+4 12 #None >
+5 12 #Bat 12 >
+6 12 #None >
+7 12 #None @
 #CageEntry
 3
 0
