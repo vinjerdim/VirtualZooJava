@@ -4,12 +4,15 @@
 
 package zoo;
 
+import animal.Consumption;
+
 import cell.Cell;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.Scanner;
+
 
 /** @author Martin Lutta Putra (13515121).
  *
@@ -34,6 +37,7 @@ public class Driver {
       int column = parser.getNumber();
       int row = parser.getNumber();
       zoo = new Zoo(column,row);
+
       currentString = parser.getString();
       if (!currentString.equals("#Cage")) {
         throw new ZooException(1);
@@ -128,19 +132,19 @@ public class Driver {
         if (currentEntry.equals("#LandHabitat")) {
           zoo.getZooCell(column, row).setCellType(8);
         } else if (currentEntry.equals("#WaterHabitat")) {
-        	zoo.getZooCell(column, row).setCellType(7);
+          zoo.getZooCell(column, row).setCellType(7);
         } else if (currentEntry.equals("#AirHabitat")) {
-        	zoo.getZooCell(column, row).setCellType(6);
+          zoo.getZooCell(column, row).setCellType(6);
         } else if (currentEntry.equals("#Park")) {
-        	zoo.getZooCell(column, row).setCellType(2);
+          zoo.getZooCell(column, row).setCellType(2);
         } else if (currentEntry.equals("#Restaurant")) {
-        	zoo.getZooCell(column, row).setCellType(0);
+          zoo.getZooCell(column, row).setCellType(0);
         } else if (currentEntry.equals("#Road")) {
-        	zoo.getZooCell(column, row).setCellType(1);
+          zoo.getZooCell(column, row).setCellType(1);
         } else if (currentEntry.equals("#Entrance")) {
-        	zoo.getZooCell(column, row).setCellType(3);
+          zoo.getZooCell(column, row).setCellType(3);
         } else if (currentEntry.equals("#Exit")) {
-        	zoo.getZooCell(column, row).setCellType(4);
+          zoo.getZooCell(column, row).setCellType(4);
         } else {
           throw new ZooException(1);
         }
@@ -160,6 +164,12 @@ public class Driver {
     }
   }
 
+  /**
+   * I.S. Objek Driver sudah terbentuk
+   * F.S. cageArray terisi dengan cell yang berupa Habitat dan Animal
+   * @throws IOException IO error
+   * @throws ZooException Zoo configuration error
+   */
   public void initializeCage() throws IOException, ZooException {
     String currentString = parser.getString();
     if (!(currentString.equals("#CageEntry"))) {
@@ -195,64 +205,117 @@ public class Driver {
 
         String animal = parser.getString();
         if (!animal.equals("#None")) {
-        	zoo.getZooCell(column, row).setCellType(10);
+          zoo.getZooCell(column, row).setCellType(10);
           Cell tempAnimal = zoo.getZooCell(column, row);
-        	int weight = parser.getNumber();
+          tempAnimal.setCellType(10);
+          int weight = parser.getNumber();
           if (animal.equals("#Bat")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('b');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Cendrawasih")) {
+            Consumption.addMeatAmount(weight * 0.25);
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('c');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Cheetah")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('h');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Chimpanzee")) {
+            Consumption.addMeatAmount(weight * 0.25);
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('i');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Crocodile")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('r');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Dolphin")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('d');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Eagle")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('e');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Frog")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('f');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Gorilla")) {
+            Consumption.addMeatAmount(weight * 0.25);
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('g');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Hyena")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('y');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Kangaroo")) {
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('z');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Koala")) {
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('k');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Kolibri")) {
+            Consumption.addMeatAmount(weight * 0.25);
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('l');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Komodo")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('v');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Lion")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('n');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Mantaray")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('m');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Orangutan")) {
+            Consumption.addMeatAmount(weight * 0.25);
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('o');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Ostrich")) {
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('r');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Panda")) {
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('p');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Peacock")) {
+            Consumption.addVegetableAmount(weight * 0.25);
             tempAnimal.setAnimalChar('u');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Seaturtle")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('s');
+            tempAnimal.setTamed(true);
           } else if (animal.equals("#Shark")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('x');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Tiger")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('t');
+            tempAnimal.setTamed(false);
           } else if (animal.equals("#Whale")) {
+            Consumption.addMeatAmount(weight * 0.25);
             tempAnimal.setAnimalChar('q');
+            tempAnimal.setTamed(true);
+          } else {
+            throw new ZooException(1);
           }
+          tempAnimal.setAnimalWeight(weight);
           cageArray.getCageByIndex(indexCage).setAnimalByIndex(indexAnimal, tempAnimal);
           indexAnimal++;
-        } else if (animal.equals("#None")) {
-
-        } else {
-          throw new ZooException(1);
         }
 
         temp = parser.getChar();
@@ -261,7 +324,39 @@ public class Driver {
       currentString = parser.getString();
       if (currentString.equals("#")) {
         break;
+      } else {
+        indexCage++;
       }
+    }
+  }
+
+  /**
+   * I.S. sembarang
+   * F.S. Jumlah sayur dan daging untuk konsumsi Zoo tercetak ke layar
+   */
+  public void showFoodAmount() {
+    System.out.println("Jumlah sayur = " + Consumption.getVegetableAmount() + " kg");
+    System.out.println("Jumlah daging = " + Consumption.getMeatAmount() + " kg");
+  }
+
+  /**
+   * I.S. sembarang
+   * F.S. Menampilkan hewan beserta lokasi nya dalam Zoo
+   */
+  public void showAnimalLocation() {
+    for (int i = 0;i < cageArray.numberOfCage();i++) {
+      cageArray.getCageByIndex(i).showAnimalLocation();
+    }
+  }
+
+  /**
+   *  I.S. cageArray sudah terinisiasi
+   *  F.S. throw exception atau sama dengan I.S.
+   * @throws ZooException Konfigurasi Zoo error
+   */
+  public void validateCage() throws ZooException {
+    for (int i = 0;i < cageArray.numberOfCage();i++) {
+      cageArray.getCageByIndex(i).validate();
     }
   }
 

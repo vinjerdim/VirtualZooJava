@@ -21,6 +21,8 @@ public class Main {
     try {
       Driver driver = new Driver("res/Zoo.txt");
       driver.initializeZoo();
+      driver.initializeCage();
+      driver.validateCage();
 
       int choice;
       Scanner scanner = new Scanner(System.in);
@@ -30,20 +32,18 @@ public class Main {
       while (choice != 5) {
         switch (choice) {
           case 1:
-            driver.showZooWithBoundary();
+            driver.showWholeZoo();
             break;
           case 2:
             System.out.print("Input: ");
             //driver.tourZoo();
             break;
           case 3:
-            System.out.print("Input: ");
-            //driver.showAnimalLocation();
+            driver.showAnimalLocation();
             //driver.moveAnimalInZoo();
             break;
           case 4:
-            System.out.print("Input: ");
-            //driver.showFoodAmount();
+            driver.showFoodAmount();
             break;
           default:
             System.out.println("Invalid input");

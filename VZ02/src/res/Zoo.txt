@@ -734,7 +734,7 @@
 9 13 #None >
 10 13 #None >
 11 13 #None >
-12 13 #Whale 8000 >
+12 13 #Whale 800 >
 13 13 #None >
 14 13 #None >
 15 13 #None >
