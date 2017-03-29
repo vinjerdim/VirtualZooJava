@@ -76,7 +76,7 @@ public class Driver {
 
   /**
    * Menampilkan Zoo di dalam range tertentu
-   * I.S. batas-batas tidak melebihi column dan row pada zoo
+   * I.S. sembarang
    * F.S. tercetak penggambaran zoo di layar
    */
   public void showZooWithBoundary() throws ZooException {
