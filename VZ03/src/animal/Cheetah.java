@@ -24,14 +24,13 @@ public class Cheetah extends Animal implements Mammal {
 
   /**  @see animal.Animal#interact().
    */
-
   @Override
   public void interact() {
     System.out.println("Cheetah tidur siang");
   }
+
   /**  @see animal.Mammal#mammalInteract().
    */
-
   @Override
   public void mammalInteract() {
     System.out.println("I'm a cheetah and I'm a mammal");

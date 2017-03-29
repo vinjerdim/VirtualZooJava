@@ -40,6 +40,7 @@ public class Driver {
    * @param filePath nama file input
    * @throws FileNotFoundException file tidak ditemukan
    * @throws IOException IO error
+   * @throws ZooException Zoo configuration error
    */
   public Driver(String filePath) throws FileNotFoundException,IOException, ZooException {
     parser = new FileParser(filePath);
@@ -66,12 +67,6 @@ public class Driver {
    * F.S. menu utama tercetak di layar
    */
   public void showMenu() {
-    System.out.println("+=====================================================================+");
-    System.out.println("     __    __ __      __  ___ __         __ ___             ___ __  __ ");
-    System.out.println("|  ||_ |  /  /  \\|\\/||_    | /  \\  \\  /||__) | /  \\ /\\ |     _//  \\/  \\");
-    System.out.println("|/\\||__|__\\__\\__/|  ||__   | \\__/   \\/ || \\  | \\__//--\\|__  /__\\__/\\__/");
-    System.out.println("+=====================================================================+");
-    System.out.println("");
     System.out.println("Virtual Zoo");
     System.out.println("1. Show Virtual Zoo");
     System.out.println("2. Tour Virtual Zoo");
@@ -84,6 +79,7 @@ public class Driver {
    * Menampilkan Zoo di dalam range tertentu
    * I.S. sembarang
    * F.S. tercetak penggambaran zoo di layar
+   * @throws ZooException Zoo configuration error
    */
   public void showZooWithBoundary() throws ZooException {
     Scanner scanner = new Scanner(System.in);
@@ -108,7 +104,6 @@ public class Driver {
       }
       System.out.println("");
     }
-    System.out.println("");
   }
 
   /**
@@ -315,7 +310,6 @@ public class Driver {
       zooPath.getCurrentRoad().setVisited(true);
       zooPath.setCurrentRoad(zooPath.getNextRoad());
     }
-    System.out.println("");
   }
 
   /**
@@ -325,7 +319,6 @@ public class Driver {
   public void showFoodAmount() {
     System.out.println("Jumlah sayur = " + Consumption.getVegetableAmount() + " kg");
     System.out.println("Jumlah daging = " + Consumption.getMeatAmount() + " kg");
-    System.out.println("");
   }
 
   /**
@@ -334,7 +327,6 @@ public class Driver {
    */
   public void moveAnimalInZoo() {
     cageArray.moveAnimalInCage();
-    System.out.println("");
   }
 
   /**

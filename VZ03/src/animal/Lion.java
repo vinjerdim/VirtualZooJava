@@ -12,6 +12,8 @@ public class Lion extends Animal implements Mammal {
    * I.S. sembarang<br>
    * F.S. habitat_status diinisiasi menjadi land, tamed diisi false, jumlah daging bertambah<br>
    * @param weight berat badan Lion
+   * @param absis absis dari Lion
+   * @param ordinat ordinat dari Lion
    */
   public Lion(int weight,int absis,int ordinat) {
     super(weight,absis,ordinat);
@@ -19,7 +21,7 @@ public class Lion extends Animal implements Mammal {
     super.setTamed(false);
     Consumption.addMeatAmount(weight * 0.25);
   }
-  
+
   /**  @see animal.Animal#interact().
    */
 

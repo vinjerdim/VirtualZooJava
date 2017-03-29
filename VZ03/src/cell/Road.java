@@ -35,6 +35,7 @@ public class Road extends Facility implements Renderable {
 
   /** I.S. sembarang
   * F.S. sama dengan F.S.
+  * @return true jika Road sudah dikunjungin
   */
   public boolean isVisited() {
     return isVisited;
