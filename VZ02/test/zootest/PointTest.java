@@ -1,18 +1,11 @@
 
 package zootest;
 
-import zoo.Point;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-
-import static org.junit.Assert.assertEquals;
-
-import static org.junit.Assert.assertFalse;
-
-import static org.junit.Assert.assertTrue;
-
+import zoo.Point;
 
 /**  Test untuk kelas Point.
  */
@@ -24,8 +17,8 @@ public class PointTest {
 
   @Test
   public void test() {
-    Point point = new Point(-1,5);
-    assertEquals(-1,point.getAbsis());
+    Point point = new Point(1,5);
+    assertEquals(1,point.getAbsis());
     assertEquals(5,point.getOrdinat());
   }
 

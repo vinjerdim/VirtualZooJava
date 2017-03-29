@@ -4,9 +4,7 @@
 
 package zoo;
 
-import cell.Entrance;
-
-import cell.Road;
+import cell.Cell;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,9 +14,9 @@ import java.util.Random;
  *
  */
 public class Path {
-  private ArrayList<Road> roadArray;
-  private ArrayList<Entrance> entranceArray;
-  private Road currentRoad;
+  private ArrayList<Cell> roadArray;
+  private ArrayList<Cell> entranceArray;
+  private Cell currentRoad;
 
   /**
    * Konstruktor kelas Path
@@ -26,9 +24,9 @@ public class Path {
    * F.S. roadArray, entranceArray, currentRoad dialokasi
    */
   public Path() {
-    roadArray = new ArrayList<Road>();
-    entranceArray = new ArrayList<Entrance>();
-    currentRoad = new Road(0,0);
+    roadArray = new ArrayList<Cell>();
+    entranceArray = new ArrayList<Cell>();
+    currentRoad = new Cell(0,0);
   }
 
   /**
@@ -36,7 +34,7 @@ public class Path {
    * F.S. sama dengan I.S.
    * @return currentRoad
    */
-  public Road getCurrentRoad() {
+  public Cell getCurrentRoad() {
     return currentRoad;
   }
 
@@ -45,7 +43,7 @@ public class Path {
    * F.S. currentRoad terisi dengan suatu Road
    * @param road Road yang akan diisikan
    */
-  public void setCurrentRoad(Road road) {
+  public void setCurrentRoad(Cell road) {
     currentRoad = road;
   }
 
@@ -72,7 +70,7 @@ public class Path {
    * F.S. suatu Road ditambahkan pada roadArray
    * @param road Road yang akan ditambahkan
    */
-  public void addRoad(Road road) {
+  public void addRoad(Cell road) {
     roadArray.add(road);
   }
 
@@ -81,7 +79,7 @@ public class Path {
    * F.S. suatu Entrance ditambahkan pada entranceArray
    * @param entrance Entrance yang akan ditambahkan
    */
-  public void addEntrance(Entrance entrance) {
+  public void addEntrance(Cell entrance) {
     entranceArray.add(entrance);
   }
 
@@ -91,7 +89,7 @@ public class Path {
    * @param index Indeks Road yang ingin diakses
    * @return Road pada indeks tertentu
    */
-  public Road getRoadByIndex(int index) {
+  public Cell getRoadByIndex(int index) {
     return roadArray.get(index);
   }
 
@@ -101,7 +99,7 @@ public class Path {
    * @param index Indeks Entrance yang ingin diakses
    * @return Entrance pada indeks tertentu
    */
-  public Road getEntranceByIndex(int index) {
+  public Cell getEntranceByIndex(int index) {
     return entranceArray.get(index);
   }
 
@@ -132,16 +130,16 @@ public class Path {
    * F.S. sama dengan I.S.
    * @return Road yang menjadi langkah selanjutnya dalam tur
    */
-  public Road getNextRoad() {
+  public Cell getNextRoad() {
     int absis = currentRoad.getCellAbsis();
     int ordinat = currentRoad.getCellOrdinat();
-    ArrayList<Road> candidate = new ArrayList<Road>();
+    ArrayList<Cell> candidate = new ArrayList<Cell>();
     int[] index = {getRoadIndex(absis + 1,ordinat),
         getRoadIndex(absis,ordinat + 1),
         getRoadIndex(absis - 1,ordinat),
         getRoadIndex(absis,ordinat - 1)};
     for (int i = 0;i < 4;i++) {
-      if (index[i] != -1 && !getRoadByIndex(index[i]).isVisited()) {
+      if (index[i] != -1 && !getRoadByIndex(index[i]).isRoadVisited()) {
         candidate.add(getRoadByIndex(index[i]));
       }
     }
@@ -160,7 +158,7 @@ public class Path {
    */
   public void setAllUnvisited() {
     for (int i = 0;i < roadArray.size();i++) {
-      roadArray.get(i).setVisited(false);
+      roadArray.get(i).setRoadVisited(false);
     }
   }
 }

@@ -4,6 +4,8 @@
 
 package zoo;
 
+import java.util.ArrayList;
+
 import cell.Cell;
 
 /** @author Martin Lutta Putra (13515121).
@@ -134,6 +136,50 @@ public class Cage {
   public void wakeAnimalInCage() {
     for (int i = 0;i < numberOfAnimal();i++) {
       animalArray[i].interact();
+    }
+  }
+
+  /**
+   * I.S. jumlah Animal dalam Cage lebih besar dari 0
+   * F.S. coordinate Animal berubah atau tetap sama
+   */
+  public void moveAnimalInCage() {
+    ArrayList<Point> nextCoordinate = new ArrayList<Point>();
+    for (int i = 0;i < numberOfAnimal();i++) {
+      ArrayList<Point> candidate = new ArrayList<Point>();
+      int absis = animalArray[i].getCellAbsis();
+      int ordinat = animalArray[i].getCellOrdinat();
+      Point[] index = {new Point(absis + 1,ordinat),new Point(absis,ordinat + 1),
+          new Point(absis,ordinat - 1),new Point(absis - 1,ordinat)};
+      for (int j = 0;j < 4;j++) {
+        int animalIndex = getAnimalIndex(index[j].getAbsis(),index[j].getOrdinat());
+        int habitatIndex = getCellIndex(index[j].getAbsis(),index[j].getOrdinat());
+        if (animalIndex == -1 && habitatIndex != -1) {
+          candidate.add(getCellByIndex(habitatIndex).getCellCoordinate());
+        }
+      }
+      if (candidate.size() > 0 && (nextCoordinate.indexOf(candidate.get(0)) == -1)) {
+        nextCoordinate.add(candidate.get(0));
+      } else {
+        nextCoordinate.add(animalArray[i].getCellCoordinate());
+      }
+    }
+    for (int i = 0;i < numberOfAnimal();i++) {
+      Point destination = nextCoordinate.get(i);
+      Point source = animalArray[i].getCellCoordinate();
+      if (!source.equals(destination)) {
+        int destinationIndex = getCellIndex(destination.getAbsis(),destination.getOrdinat());
+        Cell sourceCell = getAnimalByIndex(i);
+        Cell destinationCell = getCellByIndex(destinationIndex);
+        destinationCell.setAnimalChar(sourceCell.getAnimalChar());
+        destinationCell.setCellType(10);
+        destinationCell.setTamed(sourceCell.getTamed());
+        sourceCell.setAnimalChar(' ');
+        sourceCell.unSetCellType(10);
+        Cell temp = animalArray[i];
+        animalArray[i] = destinationCell;
+        cellArray[destinationIndex] = temp;
+      }
     }
   }
 

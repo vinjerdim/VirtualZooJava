@@ -86,7 +86,6 @@ public class Driver {
     System.out.print("Batas bawah: ");
     int lowerBound = scanner.nextInt();
     if (!isValidRow(upperBound) || !isValidRow(lowerBound) || upperBound > lowerBound) {
-      scanner.close();
       throw new ZooException(2);
     }
 
@@ -95,7 +94,6 @@ public class Driver {
     System.out.print("Batas kanan: ");
     int rightBound = scanner.nextInt();
     if (!isValidColumn(leftBound) || !isValidColumn(rightBound) || leftBound > rightBound) {
-      scanner.close();
       throw new ZooException(2);
     }
     for (int row = upperBound;row <= lowerBound;row++) {
@@ -104,7 +102,6 @@ public class Driver {
       }
       System.out.println("");
     }
-    scanner.close();
   }
 
   /**

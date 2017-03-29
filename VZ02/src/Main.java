@@ -32,15 +32,14 @@ public class Main {
       while (choice != 5) {
         switch (choice) {
           case 1:
-            driver.showWholeZoo();
+            driver.showZooWithBoundary();
             break;
           case 2:
-            System.out.print("Input: ");
-            //driver.tourZoo();
+            driver.tourZoo();
             break;
           case 3:
             driver.showAnimalLocation();
-            //driver.moveAnimalInZoo();
+            driver.moveAnimalInZoo();
             break;
           case 4:
             driver.showFoodAmount();

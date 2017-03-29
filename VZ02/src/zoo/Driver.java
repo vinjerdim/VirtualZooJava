@@ -10,7 +10,7 @@ import cell.Cell;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -21,6 +21,7 @@ public class Driver {
   private FileParser parser;
   private Zoo zoo;
   private CageArray cageArray;
+  private Path zooPath;
 
   /**
    * Konstruktor kelas Driver
@@ -44,6 +45,7 @@ public class Driver {
       }
       int numberOfCage = parser.getNumber();
       cageArray = new CageArray(numberOfCage);
+      zooPath = new Path();
     } else {
       throw new ZooException(1);
     }
@@ -72,18 +74,16 @@ public class Driver {
     System.out.print("Batas atas: ");
     int upperBound = scanner.nextInt();
     System.out.print("Batas bawah: ");
-    int lowerBound = scanner.nextInt();
+    int lowerBound = scanner.nextInt();;
     if (!isValidRow(upperBound) || !isValidRow(lowerBound) || upperBound > lowerBound) {
-      scanner.close();
       throw new ZooException(2);
     }
 
     System.out.print("Batas kiri: ");
     int leftBound = scanner.nextInt();
     System.out.print("Batas kanan: ");
-    int rightBound = scanner.nextInt();
+    int rightBound = scanner.nextInt();;
     if (!isValidColumn(leftBound) || !isValidColumn(rightBound) || leftBound > rightBound) {
-      scanner.close();
       throw new ZooException(2);
     }
     for (int row = upperBound;row <= lowerBound;row++) {
@@ -92,7 +92,6 @@ public class Driver {
       }
       System.out.println("");
     }
-    scanner.close();
   }
 
   /**
@@ -141,10 +140,14 @@ public class Driver {
           zoo.getZooCell(column, row).setCellType(0);
         } else if (currentEntry.equals("#Road")) {
           zoo.getZooCell(column, row).setCellType(1);
+          zooPath.addRoad(zoo.getZooCell(column, row));
         } else if (currentEntry.equals("#Entrance")) {
           zoo.getZooCell(column, row).setCellType(3);
+          zooPath.addEntrance(zoo.getZooCell(column, row));
+          zooPath.addRoad(zoo.getZooCell(column, row));
         } else if (currentEntry.equals("#Exit")) {
           zoo.getZooCell(column, row).setCellType(4);
+          zooPath.addRoad(zoo.getZooCell(column, row));
         } else {
           throw new ZooException(1);
         }
@@ -313,7 +316,6 @@ public class Driver {
           } else {
             throw new ZooException(1);
           }
-          tempAnimal.setAnimalWeight(weight);
           cageArray.getCageByIndex(indexCage).setAnimalByIndex(indexAnimal, tempAnimal);
           indexAnimal++;
         }
@@ -331,12 +333,49 @@ public class Driver {
   }
 
   /**
+   * I.S. jumlah entrance pada Zoo lebih besar dari 0
+   * F.S. tercetak koordinat beserta interaksi hewan di layar selama tur
+   */
+  public void tourZoo() {
+    zooPath.setAllUnvisited();
+    Random rand = new Random();
+    int randomNumber = rand.nextInt(zooPath.numberOfEntrance());
+    zooPath.setCurrentRoad(zooPath.getEntranceByIndex(randomNumber));
+    while (!zooPath.getNextRoad().equals(zooPath.getCurrentRoad())) {
+      int absis = zooPath.getCurrentRoad().getCellAbsis();
+      int ordinat = zooPath.getCurrentRoad().getCellOrdinat();
+      System.out.println(absis + " " + ordinat);
+      int[] index = {cageArray.getCageIndex(absis + 1, ordinat),
+          cageArray.getCageIndex(absis, ordinat + 1),
+          cageArray.getCageIndex(absis - 1, ordinat),
+          cageArray.getCageIndex(absis, ordinat - 1)};
+      for (int i = 0;i < 4;i++) {
+        if (index[i] != -1) {
+          if (cageArray.getCageByIndex(index[i]).numberOfAnimal() > 0) {
+            cageArray.getCageByIndex(index[i]).wakeAnimalInCage();
+          }
+        }
+      }
+      zooPath.getCurrentRoad().setRoadVisited(true);
+      zooPath.setCurrentRoad(zooPath.getNextRoad());
+    }
+  }
+
+  /**
    * I.S. sembarang
    * F.S. Jumlah sayur dan daging untuk konsumsi Zoo tercetak ke layar
    */
   public void showFoodAmount() {
     System.out.println("Jumlah sayur = " + Consumption.getVegetableAmount() + " kg");
     System.out.println("Jumlah daging = " + Consumption.getMeatAmount() + " kg");
+  }
+
+  /**
+   * I.S. numberOfCage lebih besar dari 0
+   * F.S. coordinate setiap Animal dalam Zoo tetap sama atau berubah
+   */
+  public void moveAnimalInZoo() {
+    cageArray.moveAnimalInCage();
   }
 
   /**

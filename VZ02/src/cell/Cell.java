@@ -15,15 +15,7 @@ public class Cell {
   final int numberOfCellTypes = 11;
   private Point coordinate;
   private char animalChar;
-  private int animalWeight;
   private boolean tamed;
-  /** Daftar tipe tempat tinggal animal.
-   *  animalNature[nomor] == true menyatakan memiliki nature yang bersangkutan
-   *  0 land
-   *  1 water
-   *  2 air
-   */
-  private boolean[] animalNature = new boolean[3];
 
   /** Daftar tipe render cell.
    *  Jika cellType[nomor] = true, maka render akan menulis nama tipe
@@ -53,8 +45,16 @@ public class Cell {
       cellType[i] = false;
     }
     animalChar = ' ';
-    animalWeight = 0;
     tamed = false;
+  }
+
+  /**
+   * I.S. sembarang
+   * F.S. sama dengan I.S
+   * @return Point berupa koordinat Cell
+   */
+  public Point getCellCoordinate() {
+    return coordinate;
   }
 
   /**  I.S. sembarang
@@ -73,15 +73,6 @@ public class Cell {
     return coordinate.getOrdinat();
   }
 
-  /**
-   * I.S. sembarang
-   * F.S. animalWeight terisi suatu nilai
-   * @param weight Berat badan Animal
-   */
-  public void setAnimalWeight(int weight) {
-    animalWeight = weight;
-  }
-
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
    */
@@ -93,7 +84,7 @@ public class Cell {
    * F.S. Sama dengan I.S
    */
   public boolean isHabitat() {
-    return (cellType[6] == true || cellType[7] == true || cellType[8] == true);
+    return (cellType[6] || cellType[7] || cellType[8]);
   }
 
 
@@ -101,14 +92,29 @@ public class Cell {
    * F.S. Sama dengan I.S
    */
   public boolean isAnimalExist() {
-    return (cellType[10] == true);
+    return cellType[10];
   }
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
    */
   public boolean isRoadVisited() {
-    return (cellType[9] == true);
+    return cellType[9];
+  }
+
+  /** I.S. Sembarang
+   * F.S. Sama dengan I.S
+   */
+  public void setRoadVisited(boolean visited) {
+    cellType[9] = visited;
+  }
+
+  /** I.S. sembarang
+   * F.S. sama dengan I.S.
+   * @return animalChar
+   */
+  public char getAnimalChar() {
+    return animalChar;
   }
 
   /** I.S. Fungsi isAnimalExist() bernilai true
@@ -146,6 +152,14 @@ public class Cell {
    */
   public void setCellType(int idx) {
     cellType[idx] = true;
+  }
+
+  /** I.S. Sembarang
+   * F.S. cellType[idx] diisi false
+   * @param idx Indeks cellType yang ingin diubah menjadi false
+   */
+  public void unSetCellType(int idx) {
+    cellType[idx] = false;
   }
 
   /**  @see cell.Renderable#render().
@@ -306,6 +320,11 @@ public class Cell {
     }
   }
 
+  /**
+   *  I.S. animalChar tidak sama dengan ' '
+   *  F.S. sama dengan I.S.
+   * @return true jika hewan disimpan dalam Cell yang benar
+   */
   public boolean isAnimalHabitatMatch() {
     boolean air = getNatureByAnimalChar() == 6 && getCellType()[6];
     boolean water = getNatureByAnimalChar() == 7 && getCellType()[7];
