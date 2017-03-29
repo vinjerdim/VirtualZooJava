@@ -66,6 +66,12 @@ public class Driver {
    * F.S. menu utama tercetak di layar
    */
   public void showMenu() {
+    System.out.println("+=====================================================================+");
+    System.out.println("     __    __ __      __  ___ __         __ ___             ___ __  __ ");
+    System.out.println("|  ||_ |  /  /  \\|\\/||_    | /  \\  \\  /||__) | /  \\ /\\ |     _//  \\/  \\");
+    System.out.println("|/\\||__|__\\__\\__/|  ||__   | \\__/   \\/ || \\  | \\__//--\\|__  /__\\__/\\__/");
+    System.out.println("+=====================================================================+");
+    System.out.println("");
     System.out.println("Virtual Zoo");
     System.out.println("1. Show Virtual Zoo");
     System.out.println("2. Tour Virtual Zoo");
@@ -102,6 +108,7 @@ public class Driver {
       }
       System.out.println("");
     }
+    System.out.println("");
   }
 
   /**
@@ -308,6 +315,7 @@ public class Driver {
       zooPath.getCurrentRoad().setVisited(true);
       zooPath.setCurrentRoad(zooPath.getNextRoad());
     }
+    System.out.println("");
   }
 
   /**
@@ -317,6 +325,7 @@ public class Driver {
   public void showFoodAmount() {
     System.out.println("Jumlah sayur = " + Consumption.getVegetableAmount() + " kg");
     System.out.println("Jumlah daging = " + Consumption.getMeatAmount() + " kg");
+    System.out.println("");
   }
 
   /**
@@ -325,6 +334,7 @@ public class Driver {
    */
   public void moveAnimalInZoo() {
     cageArray.moveAnimalInCage();
+    System.out.println("");
   }
 
   /**
