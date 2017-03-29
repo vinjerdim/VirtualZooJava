@@ -75,6 +75,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @return true jika Cell ada dalam Cage
    */
   public boolean isInCage() {
     return (cellType[5] == true);
@@ -82,6 +83,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @return true jika Cell adalah
    */
   public boolean isHabitat() {
     return (cellType[6] || cellType[7] || cellType[8]);
@@ -90,6 +92,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @return true jika Cell memiliki hewan di dalamnya
    */
   public boolean isAnimalExist() {
     return cellType[10];
@@ -97,6 +100,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @return true jika Cell sudah dikunjungi
    */
   public boolean isRoadVisited() {
     return cellType[9];
@@ -104,6 +108,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @param visited true jika Cell sudah dikunjungi
    */
   public void setRoadVisited(boolean visited) {
     cellType[9] = visited;
@@ -127,6 +132,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @return array cellType
    */
   public boolean[] getCellType() {
     return cellType;
@@ -134,6 +140,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
+   * @return bernilai true jika hewan dalam Cell tidak buas
    */
   public boolean getTamed() {
     return tamed;
@@ -141,6 +148,7 @@ public class Cell {
 
   /** I.S. Sembarang
    * F.S. tamed diisi dengan true atau false
+   * @param tamed true jika hewan dalam Cell tidak buas
    */
   public void setTamed(boolean tamed) {
     this.tamed = tamed;
@@ -155,16 +163,17 @@ public class Cell {
   }
 
   /** I.S. Sembarang
-   * F.S. cellType[idx] diisi false
+   * F.S. cellType diisi false
    * @param idx Indeks cellType yang ingin diubah menjadi false
    */
   public void unSetCellType(int idx) {
     cellType[idx] = false;
   }
 
-  /**  @see cell.Renderable#render().
+  /**
+   * I.S. sembarang
+   * F.S. tercetak penggambaran Cell di Zoo ke layar
    */
-
   public void render() {
     if (cellType[0] == true) {
       System.out.print("S");
