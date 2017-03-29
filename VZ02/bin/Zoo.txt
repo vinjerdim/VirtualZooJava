@@ -1,0 +1,29 @@
+#Zoo
+10
+12
+#Cage
+2
+#ZooEntry
+#LandHabitat
+1 5 >
+2 5 @
+#ZooEntry
+#WaterHabitat
+1 6 >
+2 6 >
+3 6 @
+#
+#CageEntry
+4
+1
+#Habitat
+1 5 #Lion 50 >
+2 5 #None @
+#CageEntry
+3
+0
+#Habitat
+1 6 #None >
+2 6 #None >
+3 6 #None @
+#

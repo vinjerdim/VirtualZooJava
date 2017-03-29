@@ -3,13 +3,11 @@
  */
 
 import java.io.FileNotFoundException;
-
 import java.io.IOException;
 
 import java.util.Scanner;
 
 import zoo.Driver;
-
 import zoo.ZooException;
 
 /** @author Marvin Jerremy Budiman (13515076).
@@ -23,8 +21,6 @@ public class Main {
     try {
       Driver driver = new Driver("res/Zoo.txt");
       driver.initializeZoo();
-      driver.initializeCage();
-      driver.validateCage();
 
       int choice;
       Scanner scanner = new Scanner(System.in);
@@ -37,14 +33,17 @@ public class Main {
             driver.showZooWithBoundary();
             break;
           case 2:
-            driver.tourZoo();
+            System.out.print("Input: ");
+            //driver.tourZoo();
             break;
           case 3:
-            driver.showAnimalLocation();
-            driver.moveAnimalInZoo();
+            System.out.print("Input: ");
+            //driver.showAnimalLocation();
+            //driver.moveAnimalInZoo();
             break;
           case 4:
-            driver.showFoodAmount();
+            System.out.print("Input: ");
+            //driver.showFoodAmount();
             break;
           default:
             System.out.println("Invalid input");

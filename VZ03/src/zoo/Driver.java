@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @author Marvin Jerremy Budiman (13515076).
@@ -65,24 +66,36 @@ public class Driver {
    * F.S. menu utama tercetak di layar
    */
   public void showMenu() {
-    System.out.println("");
+    System.out.println("Virtual Zoo");
     System.out.println("1. Show Virtual Zoo");
     System.out.println("2. Tour Virtual Zoo");
     System.out.println("3. Show Animal in Virtual Zoo");
     System.out.println("4. Show Food in Virtual Zoo");
+    System.out.println("5. Exit");
   }
 
   /**
    * Menampilkan Zoo di dalam range tertentu
-   * I.S. batas-batas tidak melebihi column dan row pada zoo
+   * I.S. sembarang
    * F.S. tercetak penggambaran zoo di layar
    */
-  public void showZooWithBoundary(int upperBound, int lowerBound, int leftBound, int rightBound)
-      throws ZooException {
+  public void showZooWithBoundary() throws ZooException {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Batas atas: ");
+    int upperBound = scanner.nextInt();
+    System.out.print("Batas bawah: ");
+    int lowerBound = scanner.nextInt();
     if (!isValidRow(upperBound) || !isValidRow(lowerBound) || upperBound > lowerBound) {
+      scanner.close();
       throw new ZooException(2);
     }
+
+    System.out.print("Batas kiri: ");
+    int leftBound = scanner.nextInt();
+    System.out.print("Batas kanan: ");
+    int rightBound = scanner.nextInt();
     if (!isValidColumn(leftBound) || !isValidColumn(rightBound) || leftBound > rightBound) {
+      scanner.close();
       throw new ZooException(2);
     }
     for (int row = upperBound;row <= lowerBound;row++) {
@@ -91,6 +104,7 @@ public class Driver {
       }
       System.out.println("");
     }
+    scanner.close();
   }
 
   /**
@@ -251,13 +265,11 @@ public class Driver {
             tempAnimal = new Tiger(weight,column,row);
           } else if (animal.equals("#Whale")) {
             tempAnimal = new Whale(weight,column,row);
+          } else {
+            throw new ZooException(1);
           }
           cageArray.setAnimalByIndex(indexCage, indexAnimal, tempAnimal);
           indexAnimal++;
-        } else if (animal.equals("#None")) {
-
-        } else {
-          throw new ZooException(1);
         }
 
         temp = parser.getChar();
@@ -272,7 +284,12 @@ public class Driver {
     }
   }
 
+  /**
+   * I.S. jumlah entrance pada Zoo lebih besar dari 0
+   * F.S. tercetak koordinat beserta interaksi hewan di layar selama tur
+   */
   public void tourZoo() {
+    zooPath.setAllUnvisited();
     Random rand = new Random();
     int randomNumber = rand.nextInt(zooPath.numberOfEntrance());
     zooPath.setCurrentRoad(zooPath.getEntranceByIndex(randomNumber));
@@ -286,11 +303,51 @@ public class Driver {
           cageArray.getCageIndex(absis, ordinat - 1)};
       for (int i = 0;i < 4;i++) {
         if (index[i] != -1) {
-          cageArray.getCageByIndex(index[i]).wakeAnimalInCage();
+          if (cageArray.getCageByIndex(index[i]).numberOfAnimal() > 0) {
+            cageArray.getCageByIndex(index[i]).wakeAnimalInCage();
+          }
         }
       }
       zooPath.getCurrentRoad().setVisited(true);
       zooPath.setCurrentRoad(zooPath.getNextRoad());
+    }
+  }
+
+  /**
+   * I.S. sembarang
+   * F.S. Jumlah sayur dan daging untuk konsumsi Zoo tercetak ke layar
+   */
+  public void showFoodAmount() {
+    System.out.println("Jumlah sayur = " + Consumption.getVegetableAmount() + " kg");
+    System.out.println("Jumlah daging = " + Consumption.getMeatAmount() + " kg");
+  }
+
+  /**
+   * I.S. numberOfCage lebih besar dari 0
+   * F.S. coordinate setiap Animal dalam Zoo tetap sama atau berubah
+   */
+  public void moveAnimalInZoo() {
+    cageArray.moveAnimalInCage();
+  }
+
+  /**
+   * I.S. sembarang
+   * F.S. Menampilkan hewan beserta lokasi nya dalam Zoo
+   */
+  public void showAnimalLocation() {
+    for (int i = 0;i < cageArray.numberOfCage();i++) {
+      cageArray.getCageByIndex(i).showAnimalLocation();
+    }
+  }
+
+  /**
+   *  I.S. cageArray sudah terinisiasi
+   *  F.S. throw exception atau sama dengan I.S.
+   * @throws ZooException Konfigurasi Zoo error
+   */
+  public void validateCage() throws ZooException {
+    for (int i = 0;i < cageArray.numberOfCage();i++) {
+      cageArray.getCageByIndex(i).validate();
     }
   }
 
