@@ -24,6 +24,7 @@ public class Main {
       Driver driver = new Driver("res/Zoo.txt");
       driver.initializeZoo();
       driver.initializeCage();
+      driver.validateCage();
 
       int choice;
       Scanner scanner = new Scanner(System.in);

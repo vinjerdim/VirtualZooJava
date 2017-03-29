@@ -549,13 +549,13 @@
 #
 #CageEntry
 14
-3
+1
 #Habitat
-1 1 #Lion 100 >
+1 1 #None >
 2 1 #None >
 3 1 #None >
 4 1 #None >
-5 1 #Lion 140 >
+5 1 #None >
 6 1 #None >
 7 1 #None >
 1 2 #None >
@@ -567,63 +567,63 @@
 7 2 #None @
 #CageEntry
 11
-3
+1
 #Habitat
 1 5 #Tiger 100 >
 2 5 #None >
 3 5 #None >
-4 5 #Tiger 130 >
+4 5 #None >
 5 5 #None >
 6 5 #None >
 7 5 #None >
 1 6 #None >
 2 6 #None >
 3 6 #None >
-4 6 #Tiger 120 @
+4 6 #None @
 #CageEntry
 12
-3
+1
 #Habitat
 1 8 #Gorilla 670 >
 2 8 #None >
 3 8 #None >
 4 8 #None >
 5 8 #None >
-6 8 #Gorilla 780 >
+6 8 #None >
 7 8 #None >
 1 9 #None >
 2 9 #None >
-3 9 #Gorilla 720 >
+3 9 #None >
 4 9 #None >
 5 9 #None @
 #CageEntry
 12
-3
+1
 #Habitat
 1 11 #Komodo 280 >
 2 11 #None >
 3 11 #None >
 4 11 #None >
-5 11 #Komodo 250 >
+5 11 #None >
 6 11 #None >
 7 11 #None >
 1 12 #None >
-2 12 #Komodo 200 >
+2 12 #None >
 3 12 #None >
 4 12 #None >
 5 12 #None @
 #CageEntry
 13
-3
+1
 #Habitat
 1 14 #None >
 2 14 #None >
 3 14 #None >
-4 14 #Shark 400 >
+4 14 #None >
 5 14 #None >
 1 15 #None >
 2 15 #None >
-3 15 #Shark 400 >
+3 15 #None >
 4 15 #None >
 5 15 #None >
 1 16 #Shark 400 >
@@ -631,14 +631,14 @@
 3 16 #None @
 #CageEntry
 20
-5
+1
 #Habitat
-9 1 #Eagle 20 >
+9 1 #None >
 10 1 #None >
 11 1 #None >
 12 1 #None >
 13 1 #None >
-14 1 #Eagle 17 >
+14 1 #None >
 15 1 #None >
 16 1 #None >
 17 1 #Eagle 24 >
@@ -648,9 +648,9 @@
 9 2 #None >
 10 2 #None >
 11 2 #None >
-12 2 #Eagle 18 >
+12 2 #None >
 13 2 #None >
-14 2 #Eagle 15 >
+14 2 #None >
 15 2 #None >
 16 2 #None @
 #CageEntry

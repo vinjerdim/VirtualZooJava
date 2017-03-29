@@ -121,7 +121,8 @@ public class Cage {
     int i = 0;
     boolean found = false;
     while (i < numberOfAnimal() && !found) {
-      if (animalArray[i].getAnimalAbsis() == absis && animalArray[i].getAnimalOrdinat() == ordinat) {
+      if (animalArray[i].getAnimalAbsis() == absis
+          && animalArray[i].getAnimalOrdinat() == ordinat) {
         found = true;
       } else {
         i++;
@@ -183,6 +184,33 @@ public class Cage {
       int ordinat = animalArray[i].getAnimalOrdinat();
       System.out.println(animalArray[i].getClass().getName().substring(7)
           + " di " + absis + " " + ordinat);
+    }
+  }
+
+  /**
+   * I.S. Cage sudah terisi Habitat dan Animal
+   * F.S. throw exception atau sama dengan I.S.
+   * @throws ZooException Kesalahan konfigurasi Zoo
+   */
+  public void validate() throws ZooException {
+    int numberTamed = 0;
+    for (int i = 0;i < numberOfAnimal();i++) {
+      if (animalArray[i].getTamed()) {
+        numberTamed++;
+      }
+    }
+    int numberWild = numberOfAnimal() - numberTamed;
+    if (numberTamed != numberOfAnimal() && numberWild != 1) {
+      throw new ZooException(3);
+    }
+    for (int i = 0;i < numberOfAnimal();i++) {
+      int absis = animalArray[i].getAnimalAbsis();
+      int ordinat = animalArray[i].getAnimalOrdinat();
+      int habitatIndex = getHabitatIndex(absis, ordinat);
+      if (!getHabitatByIndex(habitatIndex).getHabitatNature().isNatureMatch(
+          animalArray[i].getAnimalNature())) {
+        throw new ZooException(3);
+      }
     }
   }
 }

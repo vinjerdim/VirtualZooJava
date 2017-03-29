@@ -338,6 +338,17 @@ public class Driver {
   }
 
   /**
+   *  I.S. cageArray sudah terinisiasi
+   *  F.S. throw exception atau sama dengan I.S.
+   * @throws ZooException Konfigurasi Zoo error
+   */
+  public void validateCage() throws ZooException {
+    for (int i = 0;i < cageArray.numberOfCage();i++) {
+      cageArray.getCageByIndex(i).validate();
+    }
+  }
+
+  /**
    * I.S. sembarang
    * F.S. sama dengan I.S.
    * @param row nilai baris yang akan diperiksa
