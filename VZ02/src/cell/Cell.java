@@ -11,23 +11,23 @@ import zoo.Point;
  */
 public class Cell {
 
-	final int numberOfCellTypes = 34;
-	private Point coordinate;
-	private char animalChar;
-/** Daftar tipe tempat tinggal animal
-	 *  animalNature[nomor] == true menyatakan memiliki nature yang bersangkutan
-	 *  0 land
-	 *  1 water
-	 *  2 air
-	 */
-	private boolean[] animalNature = new boolean[3];
+  final int numberOfCellTypes = 34;
+  private Point coordinate;
+  private char animalChar;
 
-	/** Daftar tipe render cell.
-	 *  Jika cellType[nomor] = true, maka render akan menulis nama tipe
-	 *
-	 *  1 restaurant
-	 *  2 road
-	 *  3 park
+  /** Daftar tipe tempat tinggal animal.
+   *  animalNature[nomor] == true menyatakan memiliki nature yang bersangkutan
+   *  0 land
+   *  1 water
+   *  2 air
+   */
+  private boolean[] animalNature = new boolean[3];
+
+  /** Daftar tipe render cell.
+   *  Jika cellType[nomor] = true, maka render akan menulis nama tipe
+   *  1 restaurant
+   *  2 road
+   *  3 park
 	 *  4 entrance
 	 *  5 exit
 	 *  6 animal
@@ -60,7 +60,7 @@ public class Cell {
 	 *  33 tiger
 	 *  34 whale
 	 */
-	private boolean[] cellType = new boolean[numberOfCellTypes];
+  private boolean[] cellType = new boolean[numberOfCellTypes];
 
   /**  Konstruktor kelas Cell
    * I.S. sembarang
@@ -71,10 +71,10 @@ public class Cell {
   public Cell(int absis,int ordinat) {
     coordinate = new Point(absis,ordinat);
     for (int i = 0; i < cellType.length; i++) {
-    	cellType[i] = false;
+      cellType[i] = false;
     }
     for (int i = 0; i < 3; i++) {
-    	animalNature[i] = false;
+      animalNature[i] = false;
     }
   }
 
@@ -98,28 +98,28 @@ public class Cell {
    * F.S. Nature animal diisi land
    */
   public void setLandAnimal() {
-  	animalNature[0] = true;
+    animalNature[0] = true;
   }
 
   /** I.S. Fungsi isAnimalExist() bernilai true
    * F.S. Nature animal diisi water
    */
   public void setWaterAnimal() {
-  	animalNature[1] = true;
+    animalNature[1] = true;
   }
 
   /** I.S. Fungsi isAnimalExist() bernilai true
    * F.S. Nature animal diisi air
    */
   public void setAirAnimal() {
-  	animalNature[2] = true;
+    animalNature[2] = true;
   }
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
    */
   public boolean isInCage() {
-  	return (cellType[5] == true);
+    return (cellType[5] == true);
   }
 
 
@@ -127,7 +127,7 @@ public class Cell {
    * F.S. Sama dengan I.S
    */
   public boolean isHabitat() {
-  	return (cellType[6] == true || cellType[7] == true || cellType[8] == true);
+    return (cellType[6] == true || cellType[7] == true || cellType[8] == true);
   }
 
 
@@ -135,14 +135,14 @@ public class Cell {
    * F.S. Sama dengan I.S
    */
   public boolean isAnimalExist() {
-  	return (cellType[10] == true);
+    return (cellType[10] == true);
   }
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
    */
   public boolean isRoadVisited() {
-  	return (cellType[9] == true);
+    return (cellType[9] == true);
   }
 
   /** I.S. Fungsi isAnimalExist() bernilai true
@@ -150,14 +150,14 @@ public class Cell {
    * @param animalCharValue Karakter yang merepresentasikan hewan yang menghuni Cell
    */
   public void setAnimalChar(char animalCharValue) {
-  	animalChar = animalCharValue;
+    animalChar = animalCharValue;
   }
 
   /** I.S. Sembarang
    * F.S. Sama dengan I.S
    */
   public boolean[] getCellType() {
-  	return cellType;
+    return cellType;
   }
 
   /** I.S. Sembarang
@@ -165,7 +165,7 @@ public class Cell {
    * @param idx Indeks cellType yang ingin diubah menjadi true
    */
   public void setCellType(int idx) {
-  	cellType[idx] = true;
+    cellType[idx] = true;
   }
 
   /**  @see cell.Renderable#render().
@@ -173,26 +173,20 @@ public class Cell {
 
   public void render() {
     if (cellType[0] == true) {
-    	System.out.print("S");
-    }
-    else if (cellType[1] == true) {
-    	if (isRoadVisited()) {
-    		System.out.print("-");
-    	}
-    	else {
-    		System.out.print(" ");
-    	}
-    }
-    else if (cellType[2] == true) {
-    	System.out.print("P");
-    }
-    else if (cellType[3] == true) {
-    	System.out.print("E");
-    }
-    else if (cellType[4] == true) {
-    	System.out.print("B");
-    }
-    else if (cellType[6] == true) {
+      System.out.print("S");
+    } else if (cellType[1] == true) {
+      if (isRoadVisited()) {
+        System.out.print("-");
+      } else {
+        System.out.print(" ");
+      }
+    } else if (cellType[2] == true) {
+      System.out.print("P");
+    } else if (cellType[3] == true) {
+      System.out.print("E");
+    } else if (cellType[4] == true) {
+      System.out.print("B");
+    } else if (cellType[6] == true) {
     	if (isInCage()) {
     	  System.out.print("A");
     	}
