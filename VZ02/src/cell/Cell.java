@@ -322,13 +322,13 @@ public class Cell {
   public int getNatureByAnimalChar() {
     if (animalChar == 'b' || animalChar == 'c' || animalChar == 'e' || animalChar == 'l') {
       return 6;
+    } else if (animalChar == 'm' || animalChar == 'd' || animalChar == 'q' || animalChar == 'x') {
+      return 7;
     } else if (animalChar == 'h' || animalChar == 'i' || animalChar == 'd' || animalChar == 'g'
         || animalChar == 'y' || animalChar == 'k' || animalChar == 'o' || animalChar == 'n'
         || animalChar == 'r' || animalChar == 'p' || animalChar == 'u' || animalChar == 'v'
         || animalChar == 'z' || animalChar == 't') {
       return 8;
-    } else if (animalChar == 'm' || animalChar == 'e' || animalChar == 'q' || animalChar == 'x') {
-      return 7;
     } else if (animalChar == 'r' || animalChar == 'f' || animalChar == 's') {
       return 9;
     } else {

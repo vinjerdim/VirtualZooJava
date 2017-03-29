@@ -167,9 +167,6 @@ public class Cage {
     }
     for (int i = 0;i < numberOfAnimal();i++) {
       if (!animalArray[i].isAnimalHabitatMatch()) {
-        System.out.println(numberTamed);
-        System.out.println(numberOfAnimal());
-        System.out.println(numberWild);
         throw new ZooException(3);
       }
     }
